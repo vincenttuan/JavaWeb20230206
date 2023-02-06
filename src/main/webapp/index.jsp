@@ -9,9 +9,9 @@
 </head>
 <body>
 	Hello 我的 Jsp Page: <%=new Date() %>
-	<ul>
+	<ol>
 		<li><a href="/JavaWeb/servlet/report">Report Servlet</a></li>
 		<li><a href="/JavaWeb/servlet/time">Time Servlet</a></li>
-	</ul>
+	</ol>
 </body>
 </html>
