@@ -8,6 +8,6 @@
 <title>Index Page</title>
 </head>
 <body>
-	Hello 我的 Jsp Page: <%=new Date() %>
+	Hello 我的 Jsp Page2: <%=new Date() %>
 </body>
 </html>
