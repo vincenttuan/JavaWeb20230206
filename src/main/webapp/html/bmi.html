@@ -5,9 +5,17 @@
 		<link rel="stylesheet" href="/JavaWeb/css/pure-min.css">
 		<title>BMI Page</title>
 	</head>
-	<body>
+	<body style="padding: 20px">
 		
-		
+		<form class="pure-form" method="POST" action="/JavaWeb/servlet/bmi">
+			<fieldset>
+				<legend>BMI 計算</legend>
+				身高: <input type="number" placeholder="請輸入身高" id="height" name="height"><p>
+				體重: <input type="number" placeholder="請輸入體重" id="weight" name="weight"><p>
+				<button type="reset" class="pure-button">清除</button>
+				<button type="submit" class="pure-button pure-button-primary">計算</button>
+			</fieldset>
+		</form>
 		
 	</body>
 </html>
