@@ -15,7 +15,12 @@ public class DemoServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setCharacterEncoding("UTF-8");
 		resp.setContentType("text/html;charset=utf-8");
-		resp.getWriter().print("執行 doGet() 方法");
+		resp.getWriter().print("執行 doGet() 方法<br>");
+		resp.getWriter().print("URL 分析<br>");
+		resp.getWriter().print("ContextPath: " + req.getServletContext().getContextPath() + "<br>");
+		resp.getWriter().print("ServletPath:" + req.getServletPath() + "<br>");
+		resp.getWriter().print("PathInfo:" + req.getPathInfo() + "<br>");
+		
 	}
 
 	@Override
