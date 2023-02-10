@@ -15,9 +15,8 @@ import javax.servlet.http.HttpServletResponse;
  * */
 @WebServlet("/servlet/bmi")
 public class BMIServlet extends HttpServlet {
-
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	
+	private void doHandle(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// 1.確認編碼
 		resp.setCharacterEncoding("UTF-8");
 		resp.setContentType("text/html;charset=UTF-8");
@@ -48,12 +47,15 @@ public class BMIServlet extends HttpServlet {
 		String output = String.format("身高:%.1f 體重:%.1f BMI:%.2f", h, w, bmi);
 		resp.getWriter().print(output);
 	}
+	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		doHandle(req, resp);
+	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		resp.setCharacterEncoding("UTF-8");
-		resp.setContentType("text/html;charset=UTF-8");
-		
+		doHandle(req, resp);
 	}
 	
 }
