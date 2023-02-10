@@ -8,7 +8,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(value = "/servlet/demo")
+/*
+ * 路徑測試:
+ * http://localhost:8080/JavaWeb/servlet/demo
+ * http://localhost:8080/JavaWeb/servlet/demo/foo/bar/test.php
+ * http://localhost:8080/JavaWeb/servlet/demo.do
+ * */
+@WebServlet(value = {"/servlet/demo", "/servlet/demo/*", "*.do"})
 public class DemoServlet extends HttpServlet {
 
 	@Override
