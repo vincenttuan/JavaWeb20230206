@@ -20,7 +20,7 @@ public class DemoServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setCharacterEncoding("UTF-8");
-		resp.getWriter().print("執行 doPostGet() 方法");
+		resp.getWriter().print("執行 doPost() 方法");
 	}
 	
 }
