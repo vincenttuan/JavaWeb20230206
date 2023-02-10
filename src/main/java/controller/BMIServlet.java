@@ -26,7 +26,7 @@ public class BMIServlet extends HttpServlet {
 		String weight = req.getParameter("weight");
 		// 3.確認是否有參數?
 		if (height == null || weight == null) {
-			resp.getWriter().print("無參數或參數不正確");
+			resp.getWriter().print("無參數或參數數量不正確");
 			return;
 		}
 		// 4.進行轉型 String -> double
