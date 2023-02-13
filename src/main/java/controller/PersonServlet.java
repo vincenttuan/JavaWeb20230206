@@ -23,10 +23,19 @@ public class PersonServlet extends HttpServlet {
 		String[] hobbies = req.getParameterValues("hobby"); // 多筆資料抓取
 		String memo = req.getParameter("memo");
 		
+		// 檢查各表單參數資料 ...
+		// 略...
+		
 		// 重導程序-建立分派器
 		RequestDispatcher rd = req.getRequestDispatcher("/html/person_result.jsp");
 		// 帶入給 jsp 的資料
-		
+		req.setAttribute("name", name);
+		req.setAttribute("age", age);
+		req.setAttribute("sex", sex);
+		req.setAttribute("birth", birth);
+		req.setAttribute("edu", edu);
+		req.setAttribute("hobbies", hobbies);
+		req.setAttribute("memo", memo);
 		// 重導
 		rd.forward(req, resp);
 		
