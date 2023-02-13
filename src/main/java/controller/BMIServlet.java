@@ -26,8 +26,9 @@ public class BMIServlet extends HttpServlet {
 		String height = req.getParameter("height");
 		String weight = req.getParameter("weight");
 		
-		// 建立 BMIService 並調用 getBmi() 方法
+		// 3.建立 BMIService 
 		BMIService bmiService = new BMIService();
+		// 4.調用 getBmi() 方法
 		String output =bmiService.getBmi(height, weight);
 		resp.getWriter().print(output);
 	}
