@@ -1,3 +1,4 @@
+<%@ page import="java.util.Map"%>
 <%@ page import="java.util.Arrays"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -9,6 +10,7 @@ String birth     = request.getAttribute("birth") + "";
 String edu       = request.getAttribute("edu") + "";
 String[] hobbies = (String[])request.getAttribute("hobbies");
 String memo      = request.getAttribute("memo") + "";
+Map<String, String> errorMsg = (Map<String, String>)request.getAttribute("errorMsg");
 %>
 <!DOCTYPE html>
 <html>
@@ -28,11 +30,16 @@ String memo      = request.getAttribute("memo") + "";
 				生日: <%=birth %><p>
 				學歷: <%=edu %><p>
 				興趣: <%=Arrays.toString(hobbies) %><p>
-				備註: <pre><%=memo %></pre><p>	 	 
+				備註: <pre><%=memo %></pre><p>
+				<font style="color: red">	 	 
+					<%=errorMsg %><p>
+				</font>
 				<button type="button"
 						onclick="window.location.href='/JavaWeb/html/person.html';" 
 						class="pure-button button-secondary">返回</button>
-				<button type="submit" class="pure-button pure-button-primary">儲存</button>
+				<button type="submit" 
+						<%=errorMsg.size() == 0?"":"disabled" %>
+						class="pure-button pure-button-primary">儲存</button>
 			</fieldset>
 		</form>
 		
