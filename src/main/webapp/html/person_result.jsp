@@ -28,7 +28,7 @@ String memo      = request.getAttribute("memo") + "";
 				生日: <%=birth %><p>
 				學歷: <%=edu %><p>
 				興趣: <%=Arrays.toString(hobbies) %><p>
-				備註: <%=memo %><p>	 	 
+				備註: <pre><%=memo %></pre><p>	 	 
 				<button type="button"
 						onclick="window.location.href='/JavaWeb/html/person.html';" 
 						class="pure-button button-secondary">返回</button>
