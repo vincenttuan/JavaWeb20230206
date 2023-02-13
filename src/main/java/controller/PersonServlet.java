@@ -14,7 +14,14 @@ public class PersonServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+		// 抓取表單資料
+		String name = req.getParameter("name");
+		String age = req.getParameter("age");
+		String sex = req.getParameter("sex");
+		String birth = req.getParameter("birth");
+		String edu = req.getParameter("edu");
+		String[] hobbies = req.getParameterValues("hobby"); // 多筆資料抓取
+		String memo = req.getParameter("memo");
 		
 		// 重導程序-建立分派器
 		RequestDispatcher rd = req.getRequestDispatcher("/html/person_result.jsp");
