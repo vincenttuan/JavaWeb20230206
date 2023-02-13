@@ -14,7 +14,7 @@
 			<fieldset>
 				<legend>BMI 計算結果</legend>
 				<!-- 結果資料顯示 -->
-				<%=request.getAttribute("output") %>
+				<%=request.getAttribute("output") %><p>
 				<!-- 返回鍵 -->
 				<button type="submit" class="pure-button pure-button-primary">返回</button>
 			</fieldset>
