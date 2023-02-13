@@ -14,6 +14,11 @@ public class PersonServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// 中文編碼配置
+		req.setCharacterEncoding("UTF-8");
+		resp.setCharacterEncoding("UTF-8");
+		resp.setContentType("text/html;charset=UTF-8");
+		
 		// 抓取表單資料
 		String name = req.getParameter("name");
 		String age = req.getParameter("age");
