@@ -32,7 +32,7 @@ Map<String, String> errorMsg = (Map<String, String>)request.getAttribute("errorM
 				興趣: <%=Arrays.toString(hobbies) %><p>
 				備註: <pre><%=memo %></pre><p>
 				<font style="color: red">	 	 
-					<%=errorMsg %><p>
+					<%=errorMsg.size() == 0?"":errorMsg+"<p>" %>
 				</font>
 				<button type="button"
 						onclick="window.location.href='/JavaWeb/html/person.html';" 
