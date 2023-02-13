@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import service.BMIService;
+
 /*
  * 路徑測試:
  * http://localhost:8080/JavaWeb/servlet/bmi
@@ -23,28 +25,10 @@ public class BMIServlet extends HttpServlet {
 		// 2.取得參數
 		String height = req.getParameter("height");
 		String weight = req.getParameter("weight");
-		// 3.確認是否有參數?
-		if (height == null || weight == null) {
-			resp.getWriter().print("無參數或參數數量不正確");
-			return;
-		}
-		// 4.進行轉型 String -> double
-		double h = 0, w = 0;
-		try {
-			h = Double.parseDouble(height);
-			w = Double.parseDouble(weight);
-		} catch (Exception e) {
-			resp.getWriter().print("請輸入正確數值資料");
-			return;
-		}
-		// 5. 資料檢查合理性
-		if(h < 10 || h > 300 || w < 10 || w > 1000) {
-			resp.getWriter().print("資料不正確, 超過合理範圍~~");
-			return;
-		}
-		// 6.計算 BMI
-		double bmi = w / Math.pow(h/100, 2);
-		String output = String.format("身高:%.1f 體重:%.1f BMI:%.2f", h, w, bmi);
+		
+		// 建立 BMIService 並調用 getBmi() 方法
+		BMIService bmiService = new BMIService();
+		String output =bmiService.getBmi(height, weight);
 		resp.getWriter().print(output);
 	}
 	
