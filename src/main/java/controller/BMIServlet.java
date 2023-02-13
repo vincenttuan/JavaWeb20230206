@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -30,7 +31,10 @@ public class BMIServlet extends HttpServlet {
 		BMIService bmiService = new BMIService();
 		// 4.調用 getBmi() 方法
 		String output =bmiService.getBmi(height, weight);
-		resp.getWriter().print(output);
+		// 建立分派器 
+		RequestDispatcher rd = req.getRequestDispatcher("/html/bmi_result.jsp");
+		req.setAttribute("output", output);
+		rd.forward(req, resp);
 	}
 	
 	@Override
