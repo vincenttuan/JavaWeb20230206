@@ -2,6 +2,8 @@ package spa.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 import spa.entity.Master;
 import spa.entity.Order;
@@ -40,6 +42,17 @@ public class SpaDao {
 		return orderList;
 	}
 	
+	public List<Order> queryOrdersByUsername(String userName) { // 查詢 userName 的所有訂單
+		return orderList.stream()
+				.filter(order -> order.getUserName().equals(userName))
+				.collect(Collectors.toList());
+	}
 	
+	public Order getOrderById(Integer id) { // 根據 order id 查詢該筆訂單紀錄 
+		Optional<Order> optOrder = orderList.stream()
+				.filter(order -> order.getId().intValue() == id.intValue())
+				.findFirst();
+		return optOrder.isPresent() ? optOrder.get() : null;		
+	}
 	
 }
