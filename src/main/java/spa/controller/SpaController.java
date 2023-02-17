@@ -35,15 +35,21 @@ public class SpaController extends HttpServlet {
 	// spa.jsp 按下表單的預約按鈕後會執行到的方法
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// 中文編碼配置
+		req.setCharacterEncoding("UTF-8");
+		resp.setCharacterEncoding("UTF-8");
+		resp.setContentType("text/html;charset=UTF-8");
+		// 抓取表單參數
 		String userName = req.getParameter("userName");
 		Integer spaId = Integer.parseInt(req.getParameter("spaId"));
 		Integer masterId = Integer.parseInt(req.getParameter("masterId"));
 		String reserve = req.getParameter("reserve");
-		
+		// 根據 spaId 取得 Spa 物件
 		Spa spa = spaDao.queryAllSpas().stream()
 					.filter(sp -> sp.getId().intValue() == spaId.intValue())
 					.findFirst()
 					.get();
+		// 建立訂單物件
 		Order order = new Order();
 		order.setId(1);
 		order.setUserName(userName);
