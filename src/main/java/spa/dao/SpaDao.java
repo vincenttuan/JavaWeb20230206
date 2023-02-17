@@ -28,6 +28,14 @@ public class SpaDao {
 		orderList = new ArrayList<>();
 	}
 	
+	public List<Spa> queryAllSpas() { // 查詢所有 SPA 服務項目
+		return spaList;
+	}
+	
+	public List<Master> queryAllMasters() { // 查詢所有按摩師傅
+		return masterList;
+	}
+	
 	
 	
 	
