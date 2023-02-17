@@ -23,12 +23,12 @@
 				姓名: <input type="text" placeholder="請輸入名字" id="userName" name="userName"><p>
 				SPA: <select id="spaId" name="spaId">
 						<% for(Spa spa : spaList) { %>
-							<option id="<%=spa.getId() %>"><%=spa.getName() %></option>
+							<option value="<%=spa.getId() %>"><%=spa.getName() %></option>
 						<% } %>
 					 </select><p>
 				師傅: <select id="masterId" name="masterId">
 						<% for(Master master : masterList) { %>
-							<option id="<%=master.getId() %>"><%=master.getName() %></option>
+							<option value="<%=master.getId() %>"><%=master.getName() %></option>
 						<% } %>
 					 </select><p>
 				日期: <input type="date" id="reserve" name="reserve"><p>					 	 
