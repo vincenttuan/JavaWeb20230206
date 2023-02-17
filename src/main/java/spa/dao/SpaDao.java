@@ -55,4 +55,22 @@ public class SpaDao {
 		return optOrder.isPresent() ? optOrder.get() : null;		
 	}
 	
+	public boolean updateOrderById(Integer id, Order newOrder) { // 根據 order id 來修改訂單資料
+		Order order = getOrderById(id);
+		if(order != null) {
+			order = newOrder;
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean deleteOrderById(Integer id) { // 根據 order id 來刪除訂單資料
+		Order order = getOrderById(id);
+		if(order != null) {
+			orderList.remove(order);
+			return true;
+		}
+		return false;
+	}
+	
 }
