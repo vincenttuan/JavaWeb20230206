@@ -36,7 +36,9 @@ public class SpaDao {
 		return masterList;
 	}
 	
-	
+	public List<Order> queryOrders() { // 查詢所有訂單
+		return orderList;
+	}
 	
 	
 	
