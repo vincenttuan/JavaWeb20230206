@@ -23,7 +23,7 @@ public class SpaController extends HttpServlet {
 		List<Master> masterList = spaDao.queryAllMasters();
 		
 		// 分派器
-		RequestDispatcher rd = req.getRequestDispatcher("/html/spa/spa.jsp");
+		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/view/spa/spa.jsp");
 		req.setAttribute("spaList", spaList);
 		req.setAttribute("masterList", masterList);
 		rd.forward(req, resp);
