@@ -9,6 +9,7 @@ public class Order {
 	private Integer spaTime ; // 按摩服務時間
 	private Integer spaPrice ; // 按摩服務價格
 	private Integer masterId; // 師傅編號
+	private String reserve; // 預約日期
 	
 	public Integer getId() {
 		return id;
@@ -46,11 +47,18 @@ public class Order {
 	public void setMasterId(Integer masterId) {
 		this.masterId = masterId;
 	}
+	public String getReserve() {
+		return reserve;
+	}
+	public void setReserve(String reserve) {
+		this.reserve = reserve;
+	}
 	@Override
 	public String toString() {
 		return "Order [id=" + id + ", userName=" + userName + ", spaId=" + spaId + ", spaTime=" + spaTime
-				+ ", spaPrice=" + spaPrice + ", masterId=" + masterId + "]";
+				+ ", spaPrice=" + spaPrice + ", masterId=" + masterId + ", reserve=" + reserve + "]";
 	}
+	
 	
 	
 	

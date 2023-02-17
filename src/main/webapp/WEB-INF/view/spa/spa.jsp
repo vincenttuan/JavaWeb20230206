@@ -17,7 +17,7 @@
 	</head>
 	<body style="padding: 20px">
 		
-		<form class="pure-form" method="post" action="/JavaWeb/servlet/bmi">
+		<form class="pure-form" method="post" action="/JavaWeb/servlet/spa">
 			<fieldset>
 				<legend>Spa 預約</legend>
 				姓名: <input type="text" placeholder="請輸入名字" id="userName" name="userName"><p>
@@ -31,7 +31,7 @@
 							<option id="<%=master.getId() %>"><%=master.getName() %></option>
 						<% } %>
 					 </select><p>
-				日期: <input type="date" id="spaTime" name="spaTime"><p>					 	 
+				日期: <input type="date" id="reserve" name="reserve"><p>					 	 
 				<button type="reset" class="pure-button button-secondary">清除</button>
 				<button type="submit" class="pure-button pure-button-primary">預約</button>
 			</fieldset>
