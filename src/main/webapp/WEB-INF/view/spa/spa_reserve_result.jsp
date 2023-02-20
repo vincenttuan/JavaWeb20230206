@@ -12,7 +12,34 @@
 	<body style="padding: 0px">
 		<!-- Banner  -->
 		<img src="/JavaWeb/image/spa_banner.jpg">
+		<!-- 本次預約單  -->
 		${ order }<p>
+		<div style="padding: 20px">
+			<table class="pure-table pure-table-bordered">
+				<thead>
+					<tr>
+						<th>預約單號</th>
+						<th>預約人</th>
+						<th>SPA 商品 ID</th>
+						<th>SPA 時間</th>
+						<th>SPA 價格</th>
+						<th>師傅 ID</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>${ order.id }</td>
+						<td>${ order.userName }</td>
+						<td>${ order.spaId }</td>
+						<td>${ order.spaTime }</td>
+						<td>${ order.spaPrice }</td>
+						<td>${ order.masterId }</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<!-- 歷史預約單  -->
 		${ orderList }<p>
+		
 	</body>
 </html>
