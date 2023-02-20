@@ -14,7 +14,6 @@
 		<!-- Banner  -->
 		<img src="/JavaWeb/image/spa_banner.jpg">
 		<!-- 本次預約單  -->
-		${ order }<p>
 		<div style="padding: 20px">
 			<form class="pure-form">
 				<fieldset>
@@ -47,7 +46,6 @@
 			</form>
 		</div>
 		<!-- 歷史預約單  -->
-		${ orderList }<p>
 		<div style="padding: 20px">
 			<form class="pure-form">
 				<fieldset>
