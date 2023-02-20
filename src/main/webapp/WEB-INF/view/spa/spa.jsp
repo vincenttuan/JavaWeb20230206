@@ -16,26 +16,22 @@
 		<title>Spa Page</title>
 	</head>
 	<body style="padding: 0px">
+		<!-- Banner  -->
 		<img src="/JavaWeb/image/spa_banner.jpg">
-		<form class="pure-form" method="post" action="/JavaWeb/servlet/spa" style="padding: 20px">
-			<fieldset>
-				<legend>Spa 預約</legend>
-				姓名: <input type="text" placeholder="請輸入名字" id="userName" name="userName"><p>
-				SPA: <select id="spaId" name="spaId">
-						<% for(Spa spa : spaList) { %>
-							<option value="<%=spa.getId() %>"><%=spa.getName() %></option>
-						<% } %>
-					 </select><p>
-				師傅: <select id="masterId" name="masterId">
-						<% for(Master master : masterList) { %>
-							<option value="<%=master.getId() %>"><%=master.getName() %></option>
-						<% } %>
-					 </select><p>
-				日期: <input type="date" id="reserve" name="reserve"><p>					 	 
-				<button type="reset" class="pure-button button-secondary">清除</button>
-				<button type="submit" class="pure-button pure-button-primary">預約</button>
-			</fieldset>
-		</form>
+		
+		<!-- Spa Table -->
+		<table style="padding: 20px">
+			<tr>
+				<td valign="top">
+					<!-- Spa 預約 -->
+					<%@include file="/WEB-INF/view/spa/spa_reserve.jspf" %>
+				</td>
+				<td valign="top">
+					<!-- Spa 產品說明 -->
+					
+				</td>
+			</tr>
+		</table>
 		
 	</body>
 </html>
