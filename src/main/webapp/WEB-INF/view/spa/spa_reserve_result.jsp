@@ -24,6 +24,7 @@
 						<th>SPA 時間</th>
 						<th>SPA 價格</th>
 						<th>師傅 ID</th>
+						<th>預約時間</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -34,6 +35,7 @@
 						<td>${ order.spaTime }</td>
 						<td>${ order.spaPrice }</td>
 						<td>${ order.masterId }</td>
+						<td>${ order.reserve }</td>
 					</tr>
 				</tbody>
 			</table>
