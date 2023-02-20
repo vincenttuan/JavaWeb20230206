@@ -21,6 +21,11 @@
 		<div style="padding: 20px">
 			<%@ include file="/WEB-INF/view/spa/spa_reserve_history.jspf"%>
 		</div>
-		
+		<!-- 返回鍵  -->
+		<div style="padding: 20px">
+			<button type="button" 
+					onclick="location.href='/JavaWeb/servlet/spa';"
+					class="pure-button button-secondary">返回</button>
+		</div>
 	</body>
 </html>
