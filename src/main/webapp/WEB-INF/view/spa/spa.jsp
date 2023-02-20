@@ -15,37 +15,27 @@
 		<link rel="stylesheet" href="/JavaWeb/css/button-style.css">
 		<title>Spa Page</title>
 	</head>
-	<body style="padding: 20px">
-		<table>
-			<tr>
-				<td valign="top">
-					<form class="pure-form" method="post" action="/JavaWeb/servlet/spa">
-						<fieldset>
-							<legend>Spa 預約</legend>
-							姓名: <input type="text" placeholder="請輸入名字" id="userName" name="userName"><p>
-							SPA: <select id="spaId" name="spaId">
-									<% for(Spa spa : spaList) { %>
-										<option value="<%=spa.getId() %>"><%=spa.getName() %></option>
-									<% } %>
-								 </select><p>
-							師傅: <select id="masterId" name="masterId">
-									<% for(Master master : masterList) { %>
-										<option value="<%=master.getId() %>"><%=master.getName() %></option>
-									<% } %>
-								 </select><p>
-							日期: <input type="date" id="reserve" name="reserve"><p>					 	 
-							<button type="reset" class="pure-button button-secondary">清除</button>
-							<button type="submit" class="pure-button pure-button-primary">預約</button>
-						</fieldset>
-					</form>
-				</td>
-				<td valign="top">
-					<img src="/JavaWeb/image/spa.png" width="400">
-				</td>
-			</tr>
-		</table>
-		
-		
+	<body>
+		<img src="/JavaWeb/image/spa_banner.jpg">
+		<form class="pure-form" method="post" action="/JavaWeb/servlet/spa" style="padding: 20px">
+			<fieldset>
+				<legend>Spa 預約</legend>
+				姓名: <input type="text" placeholder="請輸入名字" id="userName" name="userName"><p>
+				SPA: <select id="spaId" name="spaId">
+						<% for(Spa spa : spaList) { %>
+							<option value="<%=spa.getId() %>"><%=spa.getName() %></option>
+						<% } %>
+					 </select><p>
+				師傅: <select id="masterId" name="masterId">
+						<% for(Master master : masterList) { %>
+							<option value="<%=master.getId() %>"><%=master.getName() %></option>
+						<% } %>
+					 </select><p>
+				日期: <input type="date" id="reserve" name="reserve"><p>					 	 
+				<button type="reset" class="pure-button button-secondary">清除</button>
+				<button type="submit" class="pure-button pure-button-primary">預約</button>
+			</fieldset>
+		</form>
 		
 	</body>
 </html>
