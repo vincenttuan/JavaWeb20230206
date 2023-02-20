@@ -42,27 +42,15 @@
 									</tr>
 								</thead>
 								<tbody>
+									<% for(Spa spa : spaList) { %>
 									<tr>
-										<td>1</td>
-										<td>SPA</td>
-										<td>透過調節水溫、水壓,結合香蘭精油 礦物質等,達到各種療效</td>
-										<td>90</td>
-										<td>1500</td>
+										<td align="center"><%=spa.getId() %></td>
+										<td><%=spa.getName() %></td>
+										<td><%=spa.getContent() %></td>
+										<td align="center"><%=spa.getTime() %></td>
+										<td align="right">$<%=spa.getPrice() %></td>
 									</tr>
-									<tr>
-										<td>1</td>
-										<td>SPA</td>
-										<td>透過調節水溫、水壓,結合香蘭精油 礦物質等,達到各種療效</td>
-										<td>90</td>
-										<td>1500</td>
-									</tr>
-									<tr>
-										<td>1</td>
-										<td>SPA</td>
-										<td>透過調節水溫、水壓,結合香蘭精油 礦物質等,達到各種療效</td>
-										<td>90</td>
-										<td>1500</td>
-									</tr>
+									<% } %>
 								</tbody>
 							</table>
 						</fieldset>
