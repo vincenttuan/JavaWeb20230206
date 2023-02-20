@@ -43,7 +43,8 @@
 								</thead>
 								<tbody>
 									<% for(Spa spa : spaList) { %>
-									<tr>
+									<tr onmouseover="this.style.backgroundColor='#91A561'" 
+										onmouseout="this.style.backgroundColor='#FFFFFF'">
 										<td align="center"><%=spa.getId() %></td>
 										<td><%=spa.getName() %></td>
 										<td><%=spa.getContent() %></td>
