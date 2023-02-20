@@ -28,7 +28,45 @@
 				</td>
 				<td valign="top">
 					<!-- Spa 產品說明 -->
-					
+					<form class="pure-form">
+						<fieldset>
+							<legend>Spa 產品說明</legend>
+							<table class="pure-table pure-table-bordered">
+								<thead>
+									<tr>
+										<th>編號</th>
+										<th>名稱</th>
+										<th>說明</th>
+										<th>分鐘</th>
+										<th>價格</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>1</td>
+										<td>SPA</td>
+										<td>透過調節水溫、水壓,結合香蘭精油 礦物質等,達到各種療效</td>
+										<td>90</td>
+										<td>1500</td>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>SPA</td>
+										<td>透過調節水溫、水壓,結合香蘭精油 礦物質等,達到各種療效</td>
+										<td>90</td>
+										<td>1500</td>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>SPA</td>
+										<td>透過調節水溫、水壓,結合香蘭精油 礦物質等,達到各種療效</td>
+										<td>90</td>
+										<td>1500</td>
+									</tr>
+								</tbody>
+							</table>
+						</fieldset>
+					</form>
 				</td>
 			</tr>
 		</table>
