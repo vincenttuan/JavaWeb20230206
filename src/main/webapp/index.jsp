@@ -12,6 +12,7 @@
 	<ol>
 		<li><a href="/JavaWeb/servlet/report">Report Servlet</a></li>
 		<li><a href="/JavaWeb/servlet/time">Time Servlet</a></li>
+		<li><a href="/JavaWeb/servlet/spa">Spa Servlet</a></li>
 	</ol>
 </body>
 </html>
