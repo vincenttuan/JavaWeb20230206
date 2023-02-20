@@ -22,7 +22,7 @@ public class SpaController extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		List<Spa> spaList = spaDao.queryAllSpas();
 		List<Master> masterList = spaDao.queryAllMasters();
-		List<Order> orderList = spaDao.queryOrders();
+		List<Order> orderList = spaDao.queryOrders(); // 所有的預約單
 		// 分派器
 		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/view/spa/spa.jsp");
 		req.setAttribute("spaList", spaList);
@@ -49,7 +49,7 @@ public class SpaController extends HttpServlet {
 					.filter(sp -> sp.getId().intValue() == spaId.intValue())
 					.findFirst()
 					.get();
-		// 建立訂單物件
+		// 建立預約訂單物件
 		Order order = new Order();
 		order.setId(1);
 		order.setUserName(userName);
@@ -59,10 +59,16 @@ public class SpaController extends HttpServlet {
 		order.setMasterId(masterId);
 		order.setReserve(reserve);
 		
-		resp.getWriter().print("reserve: " + order);
+		// 將此預約單放入到orderList中
+		List<Order> orderList = spaDao.queryOrders(); // 所有的預約單
+		orderList.add(order);
+		
+		// 分派器
+		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/view/spa/spa_reserve_result.jsp");
+		req.setAttribute("order", order); // 本次預約訂單
+		req.setAttribute("orderList", orderList); // 所有的預約單(歷史預約單紀錄)
+		rd.forward(req, resp);
 		
 	}
-	
-	
 	
 }
