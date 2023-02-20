@@ -15,7 +15,7 @@
 		<link rel="stylesheet" href="/JavaWeb/css/button-style.css">
 		<title>Spa Page</title>
 	</head>
-	<body>
+	<body style="padding: 0px">
 		<img src="/JavaWeb/image/spa_banner.jpg">
 		<form class="pure-form" method="post" action="/JavaWeb/servlet/spa" style="padding: 20px">
 			<fieldset>
