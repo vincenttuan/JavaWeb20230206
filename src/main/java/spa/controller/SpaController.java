@@ -54,6 +54,26 @@ public class SpaController extends HttpServlet {
 	// spa.jsp 按下表單的預約按鈕後會執行到的方法
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		switch (req.getPathInfo()) {
+			case "/": // 新增預約 (http://localhost:8080/JavaWeb/servlet/spa/) 
+				doOrder(req, resp);
+				break;
+			case "/login": // 登入驗證 (http://localhost:8080/JavaWeb/servlet/spa/login) 
+				doLogin(req, resp);
+				break;
+		}
+	}
+	
+	private void doLogin(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// 中文編碼配置
+		req.setCharacterEncoding("UTF-8");
+		resp.setCharacterEncoding("UTF-8");
+		resp.setContentType("text/html;charset=UTF-8");
+		resp.getWriter().print("login check...");
+	}
+	
+	private void doOrder(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// 中文編碼配置
 		req.setCharacterEncoding("UTF-8");
 		resp.setCharacterEncoding("UTF-8");
@@ -87,7 +107,6 @@ public class SpaController extends HttpServlet {
 		req.setAttribute("order", order); // 本次預約訂單
 		req.setAttribute("orderList", orderList); // 所有的預約單(歷史預約單紀錄)
 		rd.forward(req, resp);
-		
-	}
+	} 
 	
 }
