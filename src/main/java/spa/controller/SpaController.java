@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import spa.dao.SpaDao;
 import spa.entity.Master;
+import spa.entity.Member;
 import spa.entity.Order;
 import spa.entity.Spa;
 
@@ -73,10 +74,17 @@ public class SpaController extends HttpServlet {
 		// 抓取表單參數
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
+		// 登入驗證
+		List<Member> memberList = spaDao.queryAllMembers();
+		boolean isPass = memberList.stream()
+				.filter(m -> m.getUsername().equals(username) && m.getPassword().equals(password))
+				.findAny()
+				.isPresent(); // 是否有此筆資料 ?
 		
 		resp.getWriter().print("login check...<p>");
 		resp.getWriter().print(username + "<p>");
 		resp.getWriter().print(password + "<p>");
+		resp.getWriter().print(isPass + "<p>");
 	}
 	
 	private void doOrder(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
