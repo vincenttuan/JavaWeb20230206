@@ -2,11 +2,28 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-	Spa Login
-</body>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="/JavaWeb/css/pure-min.css">
+		<link rel="stylesheet" href="/JavaWeb/css/button-style.css">
+		<title>Spa Login</title>
+	</head>
+	<body style="padding: 0px">
+		<!-- Spa Table -->
+		<table style="padding: 20px">
+			<tr>
+				<td valign="top">
+					<!-- Spa Login -->
+					<form class="pure-form" method="post" action="/JavaWeb/servlet/spa/login">
+						<fieldset>
+							<legend>Spa 預約</legend>
+							username: <input type="text" id="username" name="username"><p>
+							password: <input type="password" id="password" name="password"><p>
+							<button type="submit" class="pure-button pure-button-primary">登入</button>
+						</fieldset>
+					</form>
+				</td>
+			</tr>		
+		</table>
+	</body>
 </html>
