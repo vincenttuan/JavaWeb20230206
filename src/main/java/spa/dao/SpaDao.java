@@ -6,6 +6,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import spa.entity.Master;
+import spa.entity.Member;
 import spa.entity.Order;
 import spa.entity.Spa;
 
@@ -14,7 +15,7 @@ public class SpaDao {
 	private static List<Spa> spaList;
 	private static List<Master> masterList;
 	private static List<Order> orderList;
-	
+	private static List<Member> memberList;
 	static {
 		spaList = List.of(
 				new Spa(1, "SPA", "透過調節水溫、水壓,結合香蘭精油 礦物質等,達到各種療效", 90, 1500),
@@ -28,6 +29,11 @@ public class SpaDao {
 				new Master(101, "John"), new Master(102, "Mary"), new Master(103, "Bob")
 		);
 		orderList = new ArrayList<>();
+		memberList = List.of(new Member("A01", "1234", 1), new Member("B02", "2222", 0), new Member("C03", "3333", 0));
+	}
+	
+	public List<Member> queryAllMembers() {  // 查詢所有客戶(Member)資料
+		return memberList;
 	}
 	
 	public List<Spa> queryAllSpas() { // 查詢所有 SPA 服務項目
