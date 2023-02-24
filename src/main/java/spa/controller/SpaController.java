@@ -70,7 +70,13 @@ public class SpaController extends HttpServlet {
 		req.setCharacterEncoding("UTF-8");
 		resp.setCharacterEncoding("UTF-8");
 		resp.setContentType("text/html;charset=UTF-8");
-		resp.getWriter().print("login check...");
+		// 抓取表單參數
+		String username = req.getParameter("username");
+		String password = req.getParameter("password");
+		
+		resp.getWriter().print("login check...<p>");
+		resp.getWriter().print(username + "<p>");
+		resp.getWriter().print(password + "<p>");
 	}
 	
 	private void doOrder(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
