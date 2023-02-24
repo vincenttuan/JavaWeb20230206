@@ -24,7 +24,7 @@
 		<!-- 返回鍵  -->
 		<div style="padding: 20px">
 			<button type="button" 
-					onclick="location.href='/JavaWeb/servlet/spa';"
+					onclick="location.href='/JavaWeb/servlet/spa/';"
 					class="pure-button button-secondary">返回</button>
 		</div>
 	</body>
