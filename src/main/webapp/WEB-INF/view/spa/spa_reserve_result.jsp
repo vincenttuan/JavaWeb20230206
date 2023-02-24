@@ -11,8 +11,8 @@
 	</head>
 
 	<body style="padding: 0px">
-		<!-- Banner  -->
-		<img src="/JavaWeb/image/spa_banner.jpg">
+		<!-- Title  -->
+		<%@include file="/WEB-INF/view/spa/spa_title.jspf" %>
 		<!-- 本次預約單  -->
 		<div style="padding: 20px">
 			<%@ include file="/WEB-INF/view/spa/spa_reserve_current.jspf"%>

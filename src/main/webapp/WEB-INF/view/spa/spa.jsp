@@ -16,9 +16,8 @@
 		<title>Spa Page</title>
 	</head>
 	<body style="padding: 0px">
-		<!-- Banner  -->
-		<img src="/JavaWeb/image/spa_banner.jpg">
-		
+		<!-- Title  -->
+		<%@include file="/WEB-INF/view/spa/spa_title.jspf" %>
 		<!-- Spa Table -->
 		<table style="padding: 20px">
 			<tr>
