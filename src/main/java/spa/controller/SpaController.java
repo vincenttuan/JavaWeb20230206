@@ -15,20 +15,39 @@ import spa.entity.Master;
 import spa.entity.Order;
 import spa.entity.Spa;
 
-@WebServlet("/servlet/spa")
+@WebServlet("/servlet/spa/*")
 public class SpaController extends HttpServlet {
 	private SpaDao spaDao = new SpaDao();
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		System.out.println("path info = " + req.getPathInfo());
+		
 		List<Spa> spaList = spaDao.queryAllSpas();
 		List<Master> masterList = spaDao.queryAllMasters();
 		List<Order> orderList = spaDao.queryOrders(); // 所有的預約單
+		String dispatcherPath = null;
+		switch (req.getPathInfo()) {
+			case "/": // Spa 預約網頁 (http://localhost:8080/JavaWeb/servlet/spa/)
+				dispatcherPath = "/WEB-INF/view/spa/spa.jsp";
+				break;
+			case "/list": // Spa 預約結果網頁 (http://localhost:8080/JavaWeb/servlet/spa/list)
+				dispatcherPath = "/WEB-INF/view/spa/spa_reserve_result.jsp";
+				break;	
+			case "/login": // 登入網頁 (http://localhost:8080/JavaWeb/servlet/spa/login)
+				dispatcherPath = "/WEB-INF/view/spa/spa_login.jsp";
+				break;
+			default:
+				resp.sendRedirect("http://localhost:8080/JavaWeb/servlet/spa/"); // 重導至首頁
+				return;
+		}
 		// 分派器
-		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/view/spa/spa.jsp");
+		RequestDispatcher rd = req.getRequestDispatcher(dispatcherPath);
 		req.setAttribute("spaList", spaList);
 		req.setAttribute("masterList", masterList);
 		req.setAttribute("orderList", orderList);
 		rd.forward(req, resp);
+		
 	}
 	
 	// 新增預約按摩

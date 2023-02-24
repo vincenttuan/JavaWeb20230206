@@ -5,13 +5,13 @@
 <div class="pure-menu pure-menu-horizontal">
     <ul class="pure-menu-list">
         <li class="pure-menu-item">
-            <a href="/JavaWeb/servlet/spa" class="pure-menu-link">Spa 預約</a>
+            <a href="/JavaWeb/servlet/spa/" class="pure-menu-link">Spa 預約</a>
         </li>
         <li class="pure-menu-item">
-            <a href="/JavaWeb/servlet/spa_list" class="pure-menu-link">Spa 所有預約</a>
+            <a href="/JavaWeb/servlet/spa/list" class="pure-menu-link">Spa 所有預約</a>
         </li>
         <li class="pure-menu-item">
-            <a href="/JavaWeb/servlet/spa_login" class="pure-menu-link">登入</a>
+            <a href="/JavaWeb/servlet/spa/login" class="pure-menu-link">登入</a>
         </li>
     </ul>
 </div>
