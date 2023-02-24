@@ -2,6 +2,7 @@ package spa.controller;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import spa.dao.SpaDao;
 import spa.entity.Master;
@@ -76,15 +78,24 @@ public class SpaController extends HttpServlet {
 		String password = req.getParameter("password");
 		// 登入驗證
 		List<Member> memberList = spaDao.queryAllMembers();
-		boolean isPass = memberList.stream()
+		Optional<Member> optMember = memberList.stream()
 				.filter(m -> m.getUsername().equals(username) && m.getPassword().equals(password))
-				.findAny()
-				.isPresent(); // 是否有此筆資料 ?
+				.findAny();
+		boolean isPass = optMember.isPresent();
 		
 		resp.getWriter().print("login check...<p>");
 		resp.getWriter().print(username + "<p>");
 		resp.getWriter().print(password + "<p>");
 		resp.getWriter().print(isPass + "<p>");
+		
+		if(isPass) {
+			// 將登入資訊寫入 session
+			HttpSession session = req.getSession();
+			session.setAttribute("member", optMember.get());
+			session.setAttribute("isPass", isPass);
+			// 登入成功導入 Spa 首頁
+			resp.sendRedirect("http://localhost:8080/JavaWeb/servlet/spa/"); // 重導至首頁
+		}
 	}
 	
 	private void doOrder(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
