@@ -14,7 +14,7 @@
 		<!-- Title  -->
 		<%@include file="/WEB-INF/view/spa/spa_title.jspf" %>
 		<!-- 本次預約單  -->
-		<div style="padding: 20px">
+		<div style="padding: 20px;display: ${order == null ? 'none':''}">
 			<%@ include file="/WEB-INF/view/spa/spa_reserve_current.jspf"%>
 		</div>
 		<!-- 歷史預約單  -->
