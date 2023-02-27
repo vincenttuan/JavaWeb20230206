@@ -1,6 +1,7 @@
 package spa.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -139,13 +140,21 @@ public class SpaController extends HttpServlet {
 		order.setReserve(reserve);
 		
 		// 將此預約單放入到orderList中
-		List<Order> orderList = spaDao.queryOrders(); // 所有的預約單
+		List<Order> orderList = null; 
+		// 查詢 member 歷史訂單紀錄
+		HttpSession session = req.getSession(false);
+		if(session != null && session.getAttribute("member") instanceof Member) {
+			Member member = (Member)session.getAttribute("member");
+			orderList = spaDao.queryOrdersByMember(member);
+		} else {
+			orderList = new ArrayList<>(); // 第一次有訂閱紀錄
+		}
 		orderList.add(order);
 		
 		// 分派器
 		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/view/spa/spa_reserve_result.jsp");
 		req.setAttribute("order", order); // 本次預約訂單
-		req.setAttribute("orderList", orderList); // 所有的預約單(歷史預約單紀錄)
+		req.setAttribute("orderList", orderList); // 預約單(歷史預約單紀錄)
 		rd.forward(req, resp);
 	} 
 	
