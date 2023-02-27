@@ -28,7 +28,14 @@ public class SpaController extends HttpServlet {
 		
 		List<Spa> spaList = spaDao.queryAllSpas(); 
 		List<Master> masterList = spaDao.queryAllMasters();
-		List<Order> orderList = spaDao.queryOrders(); // 所有的預約單
+		
+		HttpSession session = req.getSession(false); // false 不另外產生新的 session, 而使用當下的 session
+		List<Order> orderList = null;
+		if(session != null && session.getAttribute("member") instanceof Member) {
+			Member member = (Member)session.getAttribute("member");
+			orderList = spaDao.queryOrdersByMember(null)
+		}
+		//List<Order> orderList = spaDao.queryOrders(); // 所有的預約單
 		
 		String dispatcherPath = null;
 		switch (req.getPathInfo()) {
@@ -43,7 +50,6 @@ public class SpaController extends HttpServlet {
 				break;
 			case "/logout": // 登出網頁 (http://localhost:8080/JavaWeb/servlet/spa/logout)
 				// 清除 session
-				HttpSession session = req.getSession(false); // false 不另外產生新的 session, 而使用當下的 session
 				if(session != null) {
 					session.invalidate(); // session 失效
 				}
