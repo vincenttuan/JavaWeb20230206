@@ -86,4 +86,18 @@ public class SpaDao {
 		return false;
 	}
 	
+	public Spa getSpaById(Integer id) {
+		Optional<Spa> optSpa = spaList.stream()
+				.filter(spa -> spa.getId().intValue() == id.intValue())
+				.findFirst();
+		return optSpa.isPresent() ? optSpa.get() : null;	
+	}
+	
+	public Member getMemberByUsername(String username) {
+		Optional<Member> optMember = memberList.stream()
+				.filter(m -> m.getUsername().equals(username))
+				.findFirst();
+		return optMember.isPresent() ? optMember.get() : null;	
+	}
+	
 }
