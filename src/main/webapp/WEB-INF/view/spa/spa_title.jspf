@@ -13,5 +13,8 @@
         <li class="pure-menu-item">
             <a href="/JavaWeb/servlet/spa/login" class="pure-menu-link">登入</a>
         </li>
+        <li class="pure-menu-item">
+            <a href="/JavaWeb/servlet/spa/logout" class="pure-menu-link">登出 </a>
+        </li>
     </ul>
 </div>
