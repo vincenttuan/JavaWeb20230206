@@ -148,6 +148,10 @@ public class SpaController extends HttpServlet {
 		if(session != null && session.getAttribute("member") instanceof Member) {
 			Member member = (Member)session.getAttribute("member");
 			orderList = spaDao.queryOrdersByMember(member);
+		} else {
+			// 沒有 session 資料重新導向登入
+			resp.sendRedirect("http://localhost:8080/JavaWeb/servlet/spa/login");
+			return;
 		}
 		
 		// 分派器
