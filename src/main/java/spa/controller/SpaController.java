@@ -40,6 +40,14 @@ public class SpaController extends HttpServlet {
 			case "/login": // 登入網頁 (http://localhost:8080/JavaWeb/servlet/spa/login)
 				dispatcherPath = "/WEB-INF/view/spa/spa_login.jsp";
 				break;
+			case "/logout": // 登出網頁 (http://localhost:8080/JavaWeb/servlet/spa/logout)
+				// 清除 session
+				HttpSession session = req.getSession(false); // false 不另外產生新的 session, 而使用當下的 session
+				if(session != null) {
+					session.invalidate(); // session 失效
+				}
+				dispatcherPath = "/WEB-INF/view/spa/spa_logout.jsp";
+				break;	
 			default:
 				resp.sendRedirect("http://localhost:8080/JavaWeb/servlet/spa/"); // 重導至首頁
 				return;
