@@ -140,16 +140,15 @@ public class SpaController extends HttpServlet {
 		order.setReserve(reserve);
 		
 		// 將此預約單放入到orderList中
-		List<Order> orderList = null; 
+		List<Order> orderList = spaDao.queryOrders();
+		orderList.add(order); // 新增訂單到歷史紀錄中
+
 		// 查詢 member 歷史訂單紀錄
 		HttpSession session = req.getSession(false);
 		if(session != null && session.getAttribute("member") instanceof Member) {
 			Member member = (Member)session.getAttribute("member");
 			orderList = spaDao.queryOrdersByMember(member);
-		} else {
-			orderList = new ArrayList<>(); // 建構一個空的歷史紀錄
 		}
-		orderList.add(order); // 新增訂單到歷史紀錄中
 		
 		// 分派器
 		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/view/spa/spa_reserve_result.jsp");
