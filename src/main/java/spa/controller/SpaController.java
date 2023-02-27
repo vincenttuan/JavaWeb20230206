@@ -26,9 +26,10 @@ public class SpaController extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		System.out.println("path info = " + req.getPathInfo());
 		
-		List<Spa> spaList = spaDao.queryAllSpas();
+		List<Spa> spaList = spaDao.queryAllSpas(); 
 		List<Master> masterList = spaDao.queryAllMasters();
 		List<Order> orderList = spaDao.queryOrders(); // 所有的預約單
+		
 		String dispatcherPath = null;
 		switch (req.getPathInfo()) {
 			case "/": // Spa 預約網頁 (http://localhost:8080/JavaWeb/servlet/spa/)

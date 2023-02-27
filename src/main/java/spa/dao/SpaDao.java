@@ -48,6 +48,13 @@ public class SpaDao {
 		return orderList;
 	}
 	
+	public List<Order> queryOrdersByMember(Member member) { // 查詢 Member 所有訂單
+		String username = member.getUsername();
+		return orderList.stream()  // 建立串流
+						.filter(m -> m.getUserName().equals(username))  // 過濾
+						.collect(Collectors.toList());  // collect 將得到的結果收集起來轉成 List 輸出
+	}
+	
 	public List<Order> queryOrdersByUsername(String userName) { // 查詢 userName 的所有訂單
 		return orderList.stream()
 				.filter(order -> order.getUserName().equals(userName))
