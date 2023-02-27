@@ -33,7 +33,7 @@ public class SpaController extends HttpServlet {
 		List<Order> orderList = null;
 		if(session != null && session.getAttribute("member") instanceof Member) {
 			Member member = (Member)session.getAttribute("member");
-			orderList = spaDao.queryOrdersByMember(null)
+			orderList = spaDao.queryOrdersByMember(member);
 		}
 		//List<Order> orderList = spaDao.queryOrders(); // 所有的預約單
 		
