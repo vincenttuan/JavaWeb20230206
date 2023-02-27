@@ -65,7 +65,14 @@ public class SpaDao {
 		Optional<Order> optOrder = orderList.stream()
 				.filter(order -> order.getId().intValue() == id.intValue())
 				.findFirst();
-		return optOrder.isPresent() ? optOrder.get() : null;		
+		// 組合配置
+		Order order = null;
+		if (optOrder.isPresent()) {
+			order = optOrder.get();
+			order.setSpa(getSpaById(order.getSpaId()));
+			order.setMaster(get);
+		}
+		return order;		
 	}
 	
 	public boolean updateOrderById(Integer id, Order newOrder) { // 根據 order id 來修改訂單資料
@@ -91,6 +98,13 @@ public class SpaDao {
 				.filter(spa -> spa.getId().intValue() == id.intValue())
 				.findFirst();
 		return optSpa.isPresent() ? optSpa.get() : null;	
+	}
+	
+	public Master getMasterById(Integer id) {
+		Optional<Master> optMaster = masterList.stream()
+				.filter(m -> m.getId().intValue() == id.intValue())
+				.findFirst();
+		return optMaster.isPresent() ? optMaster.get() : null;	
 	}
 	
 	public Member getMemberByUsername(String username) {
