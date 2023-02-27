@@ -154,6 +154,11 @@ public class SpaController extends HttpServlet {
 			return;
 		}
 		
+		// 到歷史紀錄中查詢 member 本次訂單紀錄
+		// 取得最新一筆的 order id
+		Integer id = orderList.get(orderList.size()-1).getId();
+		order = spaDao.getOrderById(id);
+		
 		// 分派器
 		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/view/spa/spa_reserve_result.jsp");
 		req.setAttribute("order", order); // 本次預約訂單

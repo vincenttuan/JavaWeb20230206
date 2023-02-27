@@ -65,7 +65,7 @@ public class SpaDao {
 		Optional<Order> optOrder = orderList.stream()
 				.filter(order -> order.getId().intValue() == id.intValue())
 				.findFirst();
-		// 組合配置
+		// 組合配置注入
 		Order order = null;
 		if (optOrder.isPresent()) {
 			order = optOrder.get();
