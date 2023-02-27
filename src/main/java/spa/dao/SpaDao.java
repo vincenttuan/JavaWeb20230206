@@ -70,7 +70,8 @@ public class SpaDao {
 		if (optOrder.isPresent()) {
 			order = optOrder.get();
 			order.setSpa(getSpaById(order.getSpaId()));
-			order.setMaster(get);
+			order.setMaster(getMasterById(order.getMasterId()));
+			order.setMember(getMemberByUsername(order.getUserName()));
 		}
 		return order;		
 	}
