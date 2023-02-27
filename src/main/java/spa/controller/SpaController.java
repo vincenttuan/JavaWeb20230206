@@ -147,9 +147,9 @@ public class SpaController extends HttpServlet {
 			Member member = (Member)session.getAttribute("member");
 			orderList = spaDao.queryOrdersByMember(member);
 		} else {
-			orderList = new ArrayList<>(); // 第一次有訂閱紀錄
+			orderList = new ArrayList<>(); // 建構一個空的歷史紀錄
 		}
-		orderList.add(order);
+		orderList.add(order); // 新增訂單到歷史紀錄中
 		
 		// 分派器
 		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/view/spa/spa_reserve_result.jsp");
