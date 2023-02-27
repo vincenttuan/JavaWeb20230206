@@ -4,8 +4,8 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
 <form class="pure-form" method="post" action="/JavaWeb/servlet/spa/">
 	<fieldset>
-		<legend>Spa 預約</legend>
-		姓名: <input type="text" placeholder="請輸入名字" id="userName" name="userName" value="${ member.username }" readonly required><p>
+		<legend>${ sessionScope['member']['username'] } Spa 預約</legend>
+		姓名: <input type="text" placeholder="請輸入名字" id="userName" name="userName" value="${ sessionScope['member']['username'] }" readonly required><p>
 		SPA: <select id="spaId" name="spaId">
 				<% for(Spa spa : spaList) { %>
 					<option value="<%=spa.getId() %>"><%=spa.getName() %></option>

@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <form class="pure-form">
 	<fieldset>
-		<legend>歷史預約單</legend>
+		<legend>${ sessionScope['member']['username'] } 歷史預約單</legend>
 		<table class="pure-table pure-table-bordered">
 			<thead>
 				<tr>
