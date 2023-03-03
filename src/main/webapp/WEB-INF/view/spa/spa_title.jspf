@@ -1,3 +1,4 @@
+<%@page import="spa.entity.Spa"%>
 <%@ page language="java" pageEncoding="UTF-8"%>
 <!-- Banner  -->
 <img src="/JavaWeb/image/spa_banner.jpg">
@@ -19,7 +20,8 @@
             <a href="/JavaWeb/servlet/spa/logout" class="pure-menu-link">登出 </a>
         </li>
         <li>
-        	當前: <%=listener.SpaSessionListener.currentCount %> 總人次: <%=listener.SpaSessionListener.totalCount %> 
+        	當前: <%=spa.listener.SpaSessionListener.currentCount %> 
+        	總人次: <%=spa.listener.SpaSessionListener.totalCount %> 
         </li>
         
     </ul>
