@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" isErrorPage="true"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -18,7 +18,7 @@
 					<!-- Spa Logout -->
 					<form class="pure-form">
 						<fieldset>
-							<legend>Spa Error</legend>
+							<legend>Spa Error: <%=exception.getMessage() %></legend>
 						</fieldset>
 					</form>
 				</td>

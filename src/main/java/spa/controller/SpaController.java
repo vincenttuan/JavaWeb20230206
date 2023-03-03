@@ -116,6 +116,7 @@ public class SpaController extends HttpServlet {
 			// 登入失敗 
 			RuntimeException re = new RuntimeException("登入失敗");
 			throw re;
+			//resp.sendError(500, "登入失敗");
 		}
 	}
 	
