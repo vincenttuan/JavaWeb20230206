@@ -99,10 +99,10 @@ public class SpaController extends HttpServlet {
 				.findAny();
 		boolean isPass = optMember.isPresent();
 		
-		resp.getWriter().print("login check...<p>");
-		resp.getWriter().print(username + "<p>");
-		resp.getWriter().print(password + "<p>");
-		resp.getWriter().print(isPass + "<p>");
+		//resp.getWriter().print("login check...<p>");
+		//resp.getWriter().print(username + "<p>");
+		//resp.getWriter().print(password + "<p>");
+		//resp.getWriter().print(isPass + "<p>");
 		
 		if(isPass) {
 			// 將登入資訊寫入 session
@@ -112,6 +112,10 @@ public class SpaController extends HttpServlet {
 			session.setAttribute("isPass", isPass);
 			// 登入成功導入 Spa 首頁
 			resp.sendRedirect("http://localhost:8080/JavaWeb/servlet/spa/"); // 重導至首頁
+		} else {
+			// 登入失敗 
+			RuntimeException re = new RuntimeException("登入失敗");
+			throw re;
 		}
 	}
 	
