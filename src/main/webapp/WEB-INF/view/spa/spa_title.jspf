@@ -19,7 +19,7 @@
         <li class="pure-menu-item" style="display: ${ sessionScope['isPass'] ? '':'none' };">
             <a href="/JavaWeb/servlet/spa/logout" class="pure-menu-link">登出 </a>
         </li>
-        <li>
+        <li class="pure-menu-item" >
         	當前: <%=spa.listener.SpaSessionListener.currentCount %> 
         	總人次: <%=spa.listener.SpaSessionListener.totalCount %> 
         </li>

@@ -107,7 +107,7 @@ public class SpaController extends HttpServlet {
 		if(isPass) {
 			// 將登入資訊寫入 session
 			HttpSession session = req.getSession();
-			session.setMaxInactiveInterval(15); // 設定 15 秒鐘
+			//session.setMaxInactiveInterval(15); // 設定 15 秒鐘
 			session.setAttribute("member", optMember.get());
 			session.setAttribute("isPass", isPass);
 			// 登入成功導入 Spa 首頁
