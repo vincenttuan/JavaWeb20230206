@@ -17,7 +17,7 @@
   
   <error-page>
   	<error-code>500</error-code>
-  	<location>/WEB-INF/view/spa_error.jsp</location>
+  	<location>/WEB-INF/view/spa/spa_error.jsp</location>
   </error-page>
   
 </web-app>
