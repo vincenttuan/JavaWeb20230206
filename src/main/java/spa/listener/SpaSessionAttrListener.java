@@ -13,7 +13,7 @@ public class SpaSessionAttrListener implements HttpSessionAttributeListener {
 	public void attributeAdded(HttpSessionBindingEvent event) {
 		try {
 			Member m = (Member)event.getSession().getAttribute("member");
-			if(m.getUsername().equals("C01")) {
+			if(m.getUsername().equals("C03")) {
 				System.out.println("有可疑分子進入 ...");
 			}
 			
