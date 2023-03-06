@@ -35,8 +35,21 @@
 	<filter>
 		<filter-name>CFilter</filter-name>
 		<filter-class>filter.CFilter</filter-class>
-	</filter>	
+	</filter>
 	
+	<filter-mapping>
+		<filter-name>AFilter</filter-name>
+		<url-pattern>/servlet/*</url-pattern>
+	</filter-mapping>
 	
-
+	<filter-mapping>
+		<filter-name>BFilter</filter-name>
+		<url-pattern>/servlet/*</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>CFilter</filter-name>
+		<url-pattern>/servlet/*</url-pattern>
+	</filter-mapping>
+	
 </web-app>
