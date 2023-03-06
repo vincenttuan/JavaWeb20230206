@@ -15,10 +15,13 @@ public class AFilter implements Filter {
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-		System.out.println("AFilter");
+		// 1.請求過濾
+		System.out.println("AFilter request");
 		//response.getWriter().print("AFilter: Stop here !");
-		// 放行
+		// 2.放行
 		chain.doFilter(request, response);
+		// 3.回應過濾
+		System.out.println("AFilter response");
 	}
 
 }

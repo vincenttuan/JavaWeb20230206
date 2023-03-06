@@ -15,9 +15,12 @@ public class BFilter implements Filter {
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-		System.out.println("BFilter");
-		// 放行
+		// 1.請求過濾
+		System.out.println("BFilter request");
+		// 2.放行
 		chain.doFilter(request, response);
+		// 3.回應過濾
+		System.out.println("BFilter response");
 	}
 
 }
