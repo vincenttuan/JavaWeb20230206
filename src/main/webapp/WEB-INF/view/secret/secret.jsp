@@ -10,7 +10,7 @@
 	</head>
 	<body style="padding: 20px">
 		
-		<form class="pure-form">
+		<form class="pure-form" method="post">
 			<fieldset>
 				<legend>Pass Code</legend>
 				<input type="number" id="passCode" name="passCode" placeholder="請輸入驗證碼">

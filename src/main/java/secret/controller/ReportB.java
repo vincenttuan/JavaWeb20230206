@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 public class ReportB extends HttpServlet {
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.getWriter().println("ChatGPT 將為你加薪為你效力");
 	}
 	

@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 public class ReportA extends HttpServlet {
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.getWriter().println("雞蛋批發價漲3元");
 	}
 	
