@@ -16,7 +16,9 @@ public class AFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		System.out.println("AFilter");
-		response.getWriter().print("AFilter: Stop here !");
+		//response.getWriter().print("AFilter: Stop here !");
+		// 放行
+		chain.doFilter(request, response);
 	}
 
 }
