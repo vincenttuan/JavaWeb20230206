@@ -13,19 +13,19 @@ import javax.servlet.http.HttpSession;
 
 @WebFilter("/secret/*")
 public class SecretFilter extends HttpFilter {
-
+	String password = "5678";
 	@Override
 	protected void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain)
 			throws IOException, ServletException {
 		
 		HttpSession session = req.getSession();
 		Object code = session.getAttribute("code");
-		if(code != null && code.toString().equals("1234")) {
+		if(code != null && code.toString().equals(password)) {
 			// 放行
 			chain.doFilter(req, res);
 		} else if(req.getParameter("passCode") != null) { // 有傳參數訪問
 			String passCode = req.getParameter("passCode");
-			if(passCode.equals("1234")) {
+			if(passCode.equals(password)) {
 				// 寫入 session
 				session.setAttribute("code", passCode);
 				// 放行
