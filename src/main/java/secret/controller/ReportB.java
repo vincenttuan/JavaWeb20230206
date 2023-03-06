@@ -13,7 +13,7 @@ public class ReportB extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("ChatGPT 將為你加薪為你效力");
+		resp.getWriter().println("ChatGPT 將為你加薪為你效力");
 	}
 	
 }
