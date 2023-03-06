@@ -38,12 +38,12 @@
 	</filter>
 	
 	<filter-mapping>
-		<filter-name>AFilter</filter-name>
+		<filter-name>BFilter</filter-name>
 		<url-pattern>/servlet/*</url-pattern>
 	</filter-mapping>
 	
 	<filter-mapping>
-		<filter-name>BFilter</filter-name>
+		<filter-name>AFilter</filter-name>
 		<url-pattern>/servlet/*</url-pattern>
 	</filter-mapping>
 	
