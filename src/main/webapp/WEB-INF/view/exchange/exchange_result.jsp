@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Exchange Form</title>
+		<title>Exchange Result</title>
 		<link rel="stylesheet" href="/JavaWeb/css/pure-min.css">
 		<link rel="stylesheet" href="/JavaWeb/css/button-style.css">
 	</head>
@@ -12,7 +12,7 @@
 		
 		<form class="pure-form" method="get" action="/JavaWeb/exchange">
 			<fieldset>
-				<legend>Exchange Form</legend>
+				<legend>Exchange Result</legend>
 				
 				換匯金額: <p>
 				
