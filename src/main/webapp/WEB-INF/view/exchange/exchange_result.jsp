@@ -15,10 +15,10 @@
 			<fieldset>
 				<legend>Exchange Result</legend>
 				
-				${ amount } 
+				<fmt:formatNumber type="number" maxFractionDigits="1" value="${ amount }" /> 
 				${ symbols[0] } 
 				可兌換 
-				<fmt:formatNumber type="number" maxIntegerDigits="1" value="${ total }" /> 
+				<fmt:formatNumber type="number" maxFractionDigits="1" value="${ total }" />
 				${ symbols[1] }: <p>
 				
 				<button type="submit" class="pure-button pure-button-primary">返回</button>
