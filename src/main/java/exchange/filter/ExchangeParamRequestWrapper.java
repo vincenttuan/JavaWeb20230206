@@ -13,7 +13,8 @@ public class ExchangeParamRequestWrapper extends HttpServletRequestWrapper {
 	
 	@Override
 	public String getParameter(String name) {
-		if(name.equals("amount")) {
+		if(name.equals("amount") && 
+				(super.getParameter("amount") == null || super.getParameter("amount").trim().length()==0)) {
 			return "1";
 		}
 		return super.getParameter(name);
