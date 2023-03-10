@@ -17,7 +17,7 @@ public class ExchangeParamFilter extends HttpFilter {
 			throws IOException, ServletException {
 		
 		if(req.getMethod().equalsIgnoreCase("POST")) {
-			res.getWriter().print("amount:" + req.getParameter("amount"));
+			//res.getWriter().print("amount:" + req.getParameter("amount"));
 			ExchangeParamRequestWrapper requestWrapper = new ExchangeParamRequestWrapper(req);
 			chain.doFilter(requestWrapper, res);
 		} else {
