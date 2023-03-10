@@ -14,7 +14,7 @@
 			<fieldset>
 				<legend>Exchange Result</legend>
 				
-				換匯金額: <p>
+				${ amount } ${ symbols[0] } 可兌換 ${ total } ${ symbols[1] }: <p>
 				
 				<button type="submit" class="pure-button pure-button-primary">返回</button>
 			</fieldset>
