@@ -8,6 +8,13 @@
 	<packaging>war</packaging>
 
 	<dependencies>
+		
+		<dependency>
+    		<groupId>com.yahoofinance-api</groupId>
+    		<artifactId>YahooFinanceAPI</artifactId>
+    		<version>3.17.0</version>
+		</dependency>
+	
 		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-web-api</artifactId>
