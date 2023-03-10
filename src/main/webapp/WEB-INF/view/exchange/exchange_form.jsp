@@ -33,7 +33,7 @@
 				
 				<input type="number" id="amount" name="amount" placeholder="請輸入金額">
 				
-				<button type="submit" class="pure-button pure-button-primary">Submit</button>
+				<button type="submit" class="pure-button pure-button-primary">換匯</button>
 			</fieldset>
 		</form>
 		
