@@ -18,7 +18,7 @@ public class UserFilter extends HttpFilter {
 			throws IOException, ServletException {
 		// 過濾 _method
 		String _method = req.getParameter("_method");
-		final String http_method = _method == null ? "GET" : _method;
+		final String http_method = _method == null ? req.getMethod() : _method;
 		
 		HttpServletRequestWrapper wrapperRequest = new HttpServletRequestWrapper(req) {
 			@Override
