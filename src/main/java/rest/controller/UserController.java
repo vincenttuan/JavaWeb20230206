@@ -21,6 +21,7 @@ public class UserController extends HttpServlet {
 		
 		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/view/rest/user_form.jsp");
 		req.setAttribute("users", userService.queryAll());
+		req.setAttribute("_method", "POST");
 		rd.forward(req, resp);
 		
 	}

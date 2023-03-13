@@ -14,6 +14,41 @@
 		
 		<div style="padding: 20px">
 			
+			<table>
+				<tr>
+					<!-- User Form -->
+					<td>
+						<form class="pure_form" method="POST">
+							<fieldset>
+								<legend>User Form</legend>
+								
+								<input type="hidden" name="_method" value="${ _method }">
+								<button type="submit" class="pure-button pure-button-primary">${ _method }</button>
+							</fieldset>
+						</form>
+					</td>
+					<!-- User List -->
+					<td>
+						<form class="pure_form">
+							<fieldset>
+								<legend>User List</legend>
+								
+							</fieldset>
+						</form>
+					</td>
+					<!-- User Chart -->
+					<td>
+						<form class="pure_form">
+							<fieldset>
+								<legend>User Chart</legend>
+								
+							</fieldset>
+						</form>
+					</td>
+				</tr>
+			</table>
+			
+			
 		</div>
 	
 	</body>
