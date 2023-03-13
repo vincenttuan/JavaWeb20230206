@@ -10,6 +10,14 @@ public class UserService {
 	
 	private static List<User> users = new CopyOnWriteArrayList<>();
 	
+	static {
+		users.add(new User("John", 35000));
+		users.add(new User("Mary", 45000));
+		users.add(new User("Helen", 55000));
+		users.add(new User("Jean", 75000));
+		users.add(new User("Craig", 90000));
+	}
+	
 	private static UserService _instance = new UserService();
 	private UserService() {
 		
