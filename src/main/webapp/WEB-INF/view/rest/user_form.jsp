@@ -39,7 +39,9 @@
 								<table class="pure-table pure-table-bordered">
 									<thead>
 										<tr>
-											<th>ID</th><th>Name</th><th>Salary</th><th>改</th><th>刪</th>
+											<th>ID</th><th>Name</th><th>Salary</th>
+											<th><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M9 16.2l3 3.01V22h-6v-2.79l3-3.01zM12 3c-4.41 0-8 3.59-8 8s3.59 8 8 8 8-3.59 8-8-3.59-8-8-8zm0 14c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"/></svg></th>
+											<th><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7 8v11c0 .55.45 1 1 1h8c.55 0 1-.45 1-1V8H7zm2-6h6l1.48 2H8.52L9 2zm9 6H6v-2h12v2z"/></svg></th>
 										</tr>
 									</thead>
 									<tbody>
