@@ -17,7 +17,7 @@ public class UserFilter extends HttpFilter {
 	protected void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain)
 			throws IOException, ServletException {
 		// 過濾 _method
-		String _method = req.getParameter("_method");
+		String _method = req.getParameter("_method") + "";
 		HttpServletRequestWrapper wrapperRequest = null;
 		switch (_method) {
 			case "POST":
