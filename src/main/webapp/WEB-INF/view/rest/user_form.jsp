@@ -36,7 +36,24 @@
 						<form class="pure-form">
 							<fieldset>
 								<legend>User List</legend>
-								
+								<table class="pure-table pure-table-bordered">
+									<thead>
+										<tr>
+											<th>ID</th><th>Name</th><th>Salary</th><th>Update</th><th>Delete</th>
+										</tr>
+									</thead>
+									<tbody>
+										<c:forEach varStatus="status" var="user" items="${ users }">
+											<tr>
+												<td>${ status.index }</td>
+												<td>${ user.name }</td>
+												<td>${ user.salary }</td>
+												<td>update</td>
+												<td>delete</td>
+											</tr>
+										</c:forEach>
+									</tbody>
+								</table>
 							</fieldset>
 						</form>
 					</td>
