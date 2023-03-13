@@ -17,41 +17,18 @@ public class UserFilter extends HttpFilter {
 	protected void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain)
 			throws IOException, ServletException {
 		// 過濾 _method
-		String _method = req.getParameter("_method") + "";
-		HttpServletRequestWrapper wrapperRequest = null;
-		switch (_method) {
-			case "POST":
-				wrapperRequest = new HttpServletRequestWrapper(req) {
-					@Override
-					public String getMethod() {
-						return "POST";
-					}
-				};
-				chain.doFilter(wrapperRequest, res);
-				break;
-			case "PUT":
-				wrapperRequest = new HttpServletRequestWrapper(req) {
-					@Override
-					public String getMethod() {
-						return "PUT";
-					}
-				};
-				chain.doFilter(wrapperRequest, res);
-				break;
-			case "DELETE":
-				wrapperRequest = new HttpServletRequestWrapper(req) {
-					@Override
-					public String getMethod() {
-						return "DELETE";
-					}
-				};
-				chain.doFilter(wrapperRequest, res);
-				break;	
+		String _method = req.getParameter("_method");
+		final String http_method = _method == null ? "GET" : _method;
+		
+		HttpServletRequestWrapper wrapperRequest = new HttpServletRequestWrapper(req) {
+			@Override
+			public String getMethod() {
+				return http_method;
+			}
+		};
+		chain.doFilter(wrapperRequest, res);
 
-			default: // 其他, 例如: GET
-				chain.doFilter(req, res);
-				break;
-		}
+		
 	}
 	
 	
