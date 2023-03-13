@@ -19,7 +19,7 @@
 				<tr>
 					<!-- User Form -->
 					<td valign="top">
-						<form class="pure-form" method="POST" action="/rest/user/${ id }">
+						<form class="pure-form" method="POST" action="/JavaWeb/rest/user/${ id }">
 							<fieldset>
 								<legend>User Form</legend>
 								序號: <input type="text" id="id" name="id" value="${ id }" readonly><p>
