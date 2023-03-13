@@ -18,10 +18,12 @@
 				<tr>
 					<!-- User Form -->
 					<td>
-						<form class="pure_form" method="POST">
+						<form class="pure_form" method="POST" action="/rest/user/${ id }">
 							<fieldset>
 								<legend>User Form</legend>
-								
+								序號: <input type="text" id="id" name="id" value="${ id }" readonly><p>
+								姓名: <input type="text" placeholder="請輸入姓名" id="name" name="name" required><p>
+								薪資: <input type="number" placeholder="請輸入薪資" id="salary" name="salary" required><p>
 								<input type="hidden" name="_method" value="${ _method }">
 								<button type="submit" class="pure-button pure-button-primary">${ _method }</button>
 							</fieldset>
