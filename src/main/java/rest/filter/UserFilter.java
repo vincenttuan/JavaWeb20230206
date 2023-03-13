@@ -27,10 +27,5 @@ public class UserFilter extends HttpFilter {
 			}
 		};
 		chain.doFilter(wrapperRequest, res);
-
-		
 	}
-	
-	
-	
 }
