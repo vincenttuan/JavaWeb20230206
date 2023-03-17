@@ -47,6 +47,7 @@ public class UserController extends HttpServlet {
 			req.setAttribute("_method", "POST");
 		} else {
 			User user = userService.get(id);
+			req.setAttribute("id", id);
 			req.setAttribute("user", user);
 			req.setAttribute("_method", "PUT");
 		}

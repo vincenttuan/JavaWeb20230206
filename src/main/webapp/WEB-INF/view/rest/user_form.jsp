@@ -22,7 +22,7 @@
 						<form class="pure-form" method="POST" action="/JavaWeb/rest/user/${ id }">
 							<fieldset>
 								<legend>User Form</legend>
-								序號: <input type="text" id="id" name="id" value="${ user.id }" readonly><p>
+								序號: <input type="text" id="id" name="id" value="${ id }" readonly><p>
 								姓名: <input type="text" placeholder="請輸入姓名" id="name" name="name" value="${ user.name }" required><p>
 								薪資: <input type="number" placeholder="請輸入薪資" id="salary" name="salary" value="${ user.salary }" required><p>
 								<input type="text" readonly name="_method" value="${ _method }"><p>
@@ -51,7 +51,7 @@
 												<td>${ user.name }</td>
 												<td>${ user.salary }</td>
 												<td title="修改" style="cursor: pointer;">
-													<a href="/JavaWeb/rest/user/${ user.id }">
+													<a href="/JavaWeb/rest/user/${ status.index }">
 														<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M9 16.2l3 3.01V22h-6v-2.79l3-3.01zM12 3c-4.41 0-8 3.59-8 8s3.59 8 8 8 8-3.59 8-8-3.59-8-8-8zm0 14c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"/></svg>
 													</a>
 												</td>
