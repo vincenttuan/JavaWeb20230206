@@ -24,7 +24,8 @@
 	        ]);
 	
 	        var options = {
-	          title: 'User Salary'
+	          title: 'User Salary',
+	          is3D: true
 	        };
 	
 	        var chartPie   = new google.visualization.PieChart(document.getElementById('piechart'));
