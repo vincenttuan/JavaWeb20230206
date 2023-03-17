@@ -52,9 +52,7 @@
 	          ]);
 	          
 	          var options = {
-	    	          title: 'User Salary',
-	    	          showRowNumber: true
-	    	         
+				showRowNumber: true
 	    	  };
 	          
 	          var table = new google.visualization.Table(document.getElementById('tablechart'));
