@@ -27,9 +27,15 @@
 	          title: 'User Salary'
 	        };
 	
-	        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+	        var chartPie  = new google.visualization.PieChart(document.getElementById('piechart'));
+	        var chartBar  = new google.visualization.BarChart(document.getElementById('barchart'));
+	        var chartCol  = new google.visualization.ColumnChart(document.getElementById('columnchart'));
+	        var chartLine = new google.visualization.LineChart(document.getElementById('linechart'));
 	
-	        chart.draw(data, options);
+	        chartPie.draw(data, options);
+	        chartBar.draw(data, options);
+	        chartCol.draw(data, options);
+	        chartLine.draw(data, options);
 	      }
 	    </script>
 		
