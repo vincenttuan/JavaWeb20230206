@@ -27,15 +27,17 @@
 	          title: 'User Salary'
 	        };
 	
-	        var chartPie  = new google.visualization.PieChart(document.getElementById('piechart'));
-	        var chartBar  = new google.visualization.BarChart(document.getElementById('barchart'));
-	        var chartCol  = new google.visualization.ColumnChart(document.getElementById('columnchart'));
-	        var chartLine = new google.visualization.LineChart(document.getElementById('linechart'));
+	        var chartPie   = new google.visualization.PieChart(document.getElementById('piechart'));
+	        var chartBar   = new google.visualization.BarChart(document.getElementById('barchart'));
+	        var chartCol   = new google.visualization.ColumnChart(document.getElementById('columnchart'));
+	        var chartLine  = new google.visualization.LineChart(document.getElementById('linechart'));
+	        var chartTable = new google.visualization.TableChart(document.getElementById('tablechart'));
 	
 	        chartPie.draw(data, options);
 	        chartBar.draw(data, options);
 	        chartCol.draw(data, options);
 	        chartLine.draw(data, options);
+	        chartTable.draw(data, options);
 	      }
 	    </script>
 		
@@ -99,6 +101,10 @@
 								</table>
 							</fieldset>
 						</form>
+						
+						<!-- table chart -->
+						<div id="columnchart" style="width: 500px; height: 300px;"></div>
+						
 					</td>
 					<!-- User Chart -->
 					<td valign="top">
