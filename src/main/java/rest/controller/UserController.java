@@ -56,10 +56,8 @@ public class UserController extends HttpServlet {
 			} else { // 修改
 				req.setAttribute("_method", "PUT");
 			}
-			
 		}
 		rd.forward(req, resp);
-		
 	}
 
 	@Override
@@ -87,7 +85,11 @@ public class UserController extends HttpServlet {
 	
 	@Override
 	protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		resp.getWriter().print("doDelete()");
+		int id = Integer.parseInt(req.getParameter("id"));
+		// 刪除程序
+		userService.delete(id);
+		// 重導
+		resp.sendRedirect("/JavaWeb/rest/user/");
 	}
 
 	
