@@ -102,6 +102,17 @@
 							<fieldset>
 								<legend>User Chart</legend>
 								
+								<table>
+									<tr>
+										<td><div id="piechart" style="width: 500px; height: 300px;"></div></td>
+										<td><div id="barchart" style="width: 500px; height: 300px;"></div></td>
+									</tr>
+									<tr>
+										<td><div id="columnchart" style="width: 500px; height: 300px;"></div></td>
+										<td><div id="linechart" style="width: 500px; height: 300px;"></div></td>
+									</tr>
+								</table>
+								
 							</fieldset>
 						</form>
 					</td>
