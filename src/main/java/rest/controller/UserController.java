@@ -49,7 +49,14 @@ public class UserController extends HttpServlet {
 			User user = userService.get(id);
 			req.setAttribute("id", id);
 			req.setAttribute("user", user);
-			req.setAttribute("_method", "PUT");
+			
+			boolean isDelete = Boolean.parseBoolean(req.getParameter("delete"));
+			if(isDelete) { // 刪除
+				req.setAttribute("_method", "DELETE");
+			} else { // 修改
+				req.setAttribute("_method", "PUT");
+			}
+			
 		}
 		rd.forward(req, resp);
 		
