@@ -11,7 +11,7 @@
 		
 		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 	    <script type="text/javascript">
-	      google.charts.load('current', {'packages':['corechart']});
+	      google.charts.load('current', {'packages':['corechart', 'table']});
 	      google.charts.setOnLoadCallback(drawChart);
 	
 	      function drawChart() {
@@ -31,14 +31,30 @@
 	        var chartBar   = new google.visualization.BarChart(document.getElementById('barchart'));
 	        var chartCol   = new google.visualization.ColumnChart(document.getElementById('columnchart'));
 	        var chartLine  = new google.visualization.LineChart(document.getElementById('linechart'));
-	        var chartTable = new google.visualization.TableChart(document.getElementById('tablechart'));
-	
+	        
 	        chartPie.draw(data, options);
 	        chartBar.draw(data, options);
 	        chartCol.draw(data, options);
 	        chartLine.draw(data, options);
-	        chartTable.draw(data, options);
+	        
+	        drawTable();
 	      }
+	      
+	      function drawTable() {
+	          var data = new google.visualization.DataTable();
+	          data.addColumn('string', 'Name');
+	          data.addColumn('number', 'Salary');
+	          data.addColumn('boolean', 'Full Time Employee');
+	          data.addRows([
+	        	<c:forEach varStatus="status" var="user" items="${ users }">
+	            	['${ user.name }',   {v:${ user.salary }},  true],
+	            </c:forEach>
+	          ]);
+
+	          var table = new google.visualization.Table(document.getElementById('tablechart'));
+				
+	          table.draw(data, {showRowNumber: true});
+	        }
 	    </script>
 		
 	</head>
