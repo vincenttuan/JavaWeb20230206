@@ -25,7 +25,7 @@
 								序號: <input type="text" id="id" name="id" value="${ id }" readonly><p>
 								姓名: <input type="text" placeholder="請輸入姓名" id="name" name="name" value="${ user.name }" required><p>
 								薪資: <input type="number" placeholder="請輸入薪資" id="salary" name="salary" value="${ user.salary }" required><p>
-								<input type="text" readonly name="_method" value="${ _method }"><p>
+								<input type="hidden" readonly name="_method" value="${ _method }"><p>
 								<button type="button"
 									onclick="location.href='/JavaWeb/rest/user/'" 
 									class="pure-button button-secondary">RESET</button>
