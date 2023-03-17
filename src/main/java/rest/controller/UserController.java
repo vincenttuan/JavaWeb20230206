@@ -68,7 +68,14 @@ public class UserController extends HttpServlet {
 
 	@Override
 	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		resp.getWriter().print("doPut()");
+		int id = Integer.parseInt(req.getParameter("id"));
+		String name = req.getParameter("name");
+		int salary = Integer.parseInt(req.getParameter("salary"));
+		// 修改程序
+		User user = new User(name, salary);
+		userService.update(id, user);
+		// 重導
+		resp.sendRedirect("/JavaWeb/rest/user/");
 	}
 	
 	@Override
