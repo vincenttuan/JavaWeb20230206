@@ -50,10 +50,16 @@
 	            	['${ user.name }',   {v:${ user.salary }},  true],
 	            </c:forEach>
 	          ]);
-
+	          
+	          var options = {
+	    	          title: 'User Salary',
+	    	          showRowNumber: true
+	    	         
+	    	  };
+	          
 	          var table = new google.visualization.Table(document.getElementById('tablechart'));
 				
-	          table.draw(data, {showRowNumber: true});
+	          table.draw(data, options);
 	        }
 	    </script>
 		
