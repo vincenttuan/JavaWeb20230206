@@ -1,6 +1,8 @@
 package rest.controller;
 
 import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,8 +19,27 @@ public class UserController extends HttpServlet {
 	
 	private UserService userService = UserService.getUserServiceInstance();
 	
+	private Integer parsePathInfo(String pathInfo) {
+		/*
+		  ^    首
+		  \\d  數字
+		  +    1..* 個
+		  $    尾 
+		*/
+		Pattern pattern = Pattern.compile("^/\\d+$"); // 正則表示式
+		Matcher matcher = pattern.matcher(pathInfo);  // 匹配: pathInfo 有沒有符合 pattern
+		
+		if(matcher.find()) { // 有匹配到
+			return Integer.parseInt(pathInfo.substring(1));
+		}
+		return null;
+	}
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		Integer id = parsePathInfo(req.getPathInfo());
+		System.out.println("id = " + id);
 		
 		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/view/rest/user_form.jsp");
 		req.setAttribute("users", userService.queryAll());

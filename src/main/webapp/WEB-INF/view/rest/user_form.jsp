@@ -25,7 +25,7 @@
 								序號: <input type="text" id="id" name="id" value="${ id }" readonly><p>
 								姓名: <input type="text" placeholder="請輸入姓名" id="name" name="name" required><p>
 								薪資: <input type="number" placeholder="請輸入薪資" id="salary" name="salary" required><p>
-								<input type="hidden" name="_method" value="${ _method }">
+								<input type="text" readonly name="_method" value="${ _method }"><p>
 								<button type="reset" class="pure-button button-secondary">RESET</button>
 								<button type="submit" class="pure-button button-success">${ _method }</button>
 							</fieldset>
