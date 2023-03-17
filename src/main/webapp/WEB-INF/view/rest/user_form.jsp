@@ -103,7 +103,7 @@
 						</form>
 						
 						<!-- table chart -->
-						<div id="columnchart" style="width: 500px; height: 300px;"></div>
+						<div id="tablechart" style="width: 500px; height: 300px;"></div>
 						
 					</td>
 					<!-- User Chart -->
