@@ -57,8 +57,24 @@ public class EmployeeServlet extends HttpServlet {
 	
 	@Override
 	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		super.doPut(req, resp);
+		String pathInfo = req.getPathInfo();
+		try {
+			Integer id = Integer.parseInt(pathInfo.substring(1));
+			Employee employee = employeeDao.getEmployeeById(id);
+			if(employee == null) {
+				resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
+			} else {
+				PrintWriter out = resp.getWriter();
+				BufferedReader reader = req.getReader();
+				Employee updateEmployee = gson.fromJson(reader, Employee.class);
+				updateEmployee.setId(id);
+				employeeDao.updateEmployee(id, updateEmployee);
+				out.print("{'result': 'UPDATE OK'}");
+				out.flush();
+			}
+		} catch (Exception e) {
+			resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+		}
 	}
 	
 	@Override
