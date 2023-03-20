@@ -1,6 +1,8 @@
 package ajax.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 
 import ajax.dao.EmployeeDao;
+import ajax.entity.Employee;
 
 @WebServlet("/ajax/employees/*")
 public class EmployeeServlet extends HttpServlet {
@@ -19,8 +22,23 @@ public class EmployeeServlet extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		super.doGet(req, resp);
+		String pathInfo = req.getPathInfo();
+		PrintWriter out = resp.getWriter();
+		if(pathInfo == null || pathInfo.equals("/") || pathInfo.equals("/*")) {
+			// 取得所有 employees
+			List<Employee> employees = employeeDao.getAllEmployees();
+			out.print(gson.toJson(employees));
+		} else {
+			// 根據 id 找到該筆 Employee
+			Integer id = Integer.parseInt(pathInfo.substring(1));
+			Employee employee = employeeDao.getEmployeeById(id);
+			if(employee == null) {
+				resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
+			} else {
+				out.print(gson.toJson(employee));
+			}
+		}
+		out.flush();
 	}
 	
 	@Override
