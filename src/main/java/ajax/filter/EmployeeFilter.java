@@ -22,7 +22,7 @@ public class EmployeeFilter extends HttpFilter {
 		// 設定 no-cache
 		res.setHeader("Cache-Control", "must-revalidate, no-cache, no-store");
 		res.setHeader("Pragma", "no-cache");
-		res.setDateHeader("Expires", -1);
+		res.setDateHeader("Expires", 0);
 		
 		chain.doFilter(req, res);
 	}

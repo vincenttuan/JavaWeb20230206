@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="/JavaWeb/css/pure-min.css">
+		<link rel="stylesheet" href="/JavaWeb/css/button-style.css">
+		<title>Ajax Employee</title>
+	</head>
+	<body style="padding: 20px">
+		<form class="pure-form" id="add-form">
+			<fieldset>
+				<legend>Employee Form</legend>
+				姓名: <input type="text" id="name" placeholder="請輸入員工姓名" required><p>
+				薪資: <input type="number" id="salary" placeholder="請輸入員工薪資" required><p>
+				<button type="reset">清空</button>&nbsp;<button type="submit">新增</button>
+			</fieldset>
+		</form>
+		
+		<form class="pure-form">
+			<fieldset>
+				<legend>Employee List</legend>
+				<table class="pure-table pure-table-bordered">
+					<thead>
+						<tr>
+							<th>ID</th><th>姓名</th><th>薪資</th><th>修改</th><th>刪除</th>
+						</tr>
+					</thead>
+					<tbody id="employee-list">
+						
+					</tbody>
+				</table>
+			</fieldset>
+			
+		</form>
+		
+	</body>
+</html>
