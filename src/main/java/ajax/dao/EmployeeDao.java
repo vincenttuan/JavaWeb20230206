@@ -34,5 +34,24 @@ public class EmployeeDao {
 		return employeeOpt.isPresent() ? employeeOpt.get() : null;
 	}
 	
+	public void addEmployee(Employee employee) {
+		employees.add(employee);
+	}
+	
+	public void updateEmployee(Integer id, Employee employee) {
+		// 根據 id 來查找 index
+		int index = employees.indexOf(getEmployeeById(id));
+		if(index != -1) {
+			employees.set(index, employee);
+		}
+	}
+	
+	public void deleteEmployee(Integer id) {
+		// 根據 id 來查找 index
+		int index = employees.indexOf(getEmployeeById(id));
+		if(index != -1) {
+			employees.remove(index);
+		}
+	}
 	
 }
