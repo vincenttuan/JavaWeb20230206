@@ -79,7 +79,20 @@ public class EmployeeServlet extends HttpServlet {
 	
 	@Override
 	protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		super.doDelete(req, resp);
+		String pathInfo = req.getPathInfo();
+		try {
+			Integer id = Integer.parseInt(pathInfo.substring(1));
+			Employee employee = employeeDao.getEmployeeById(id);
+			if(employee == null) {
+				resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
+			} else {
+				PrintWriter out = resp.getWriter();
+				employeeDao.deleteEmployee(id);
+				out.print("{'result': 'DELETE OK'}");
+				out.flush();
+			}
+		} catch (Exception e) {
+			resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+		}
 	}
 }
