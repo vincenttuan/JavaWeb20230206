@@ -1,5 +1,6 @@
 package ajax.controller;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -43,8 +44,15 @@ public class EmployeeServlet extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		super.doPost(req, resp);
+		PrintWriter out = resp.getWriter();
+		BufferedReader reader = req.getReader(); // 取得前端傳來的串流資料(json)
+		Employee employee = gson.fromJson(reader, Employee.class);
+		// 設定 id
+		employee.setId(employeeDao.getEmployeeNextId());
+		// 新增
+		employeeDao.addEmployee(employee);
+		out.print("{'result': 'ADD OK'}");
+		out.flush();
 	}
 	
 	@Override
