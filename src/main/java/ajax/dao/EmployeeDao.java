@@ -11,6 +11,12 @@ public class EmployeeDao {
 	private static List<Employee> employees = new CopyOnWriteArrayList<>();
 	private static EmployeeDao _instance = new EmployeeDao();
 	
+	static {
+		employees.add(new Employee(1, "John", 80000));
+		employees.add(new Employee(2, "Mary", 90000));
+		employees.add(new Employee(3, "Bob", 120000));
+	}
+	
 	private EmployeeDao() {
 		
 	}

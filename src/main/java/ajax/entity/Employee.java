@@ -5,6 +5,16 @@ public class Employee {
 	private String name;
 	private Integer salary;
 	
+	public Employee() {
+		
+	}
+	
+	public Employee(Integer id, String name, Integer salary) {
+		this.id = id;
+		this.name = name;
+		this.salary = salary;
+	}
+	
 	public Integer getId() {
 		return id;
 	}
