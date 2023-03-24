@@ -82,9 +82,9 @@ public class EmployeeDao {
 			return;
 		}
 		// 移除
-		// 將 existingEmployee 回到 entityManager 所管理的狀態: entityManager.merge(existingEmployee)
-		// 之後才能進行移除
-		entityManager.remove(entityManager.merge(existingEmployee));
+		Employee managedEmployee = entityManager.merge(existingEmployee);
+		entityManager.remove(managedEmployee);
+		
 		etx.commit(); // 提交
 		
 		entityManager.close();
