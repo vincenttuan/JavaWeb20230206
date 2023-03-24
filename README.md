@@ -3,7 +3,7 @@ JavaWeb20230206 東認 Java Web
 
 # Web-JPA-MySQL
 # 建立資料庫
-CREATE DATABASE jpa CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+CREATE DATABASE web CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 
 # 預設 JPA 設定檔路徑
 src/main/resources/META-INF/persistence.xml
