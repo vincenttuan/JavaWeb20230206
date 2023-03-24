@@ -14,6 +14,26 @@
 				queryAllEmployees();
 			});	
 			
+			// 新增
+			function addEmployee(employee) {
+				// 新增時給一個預設 id
+				employee.id = 0;
+				$.ajax({
+					url: apiEndpoint,
+					type: "POST",
+					dataType: "json",
+					data: JSON.stringify(employee), // 將 employee物件 轉 json 格式的字串
+					contentType: "application/json",
+					success: function(employees) {
+						console.log(employees);
+					},
+					error: function(jqXHR, textStatus) {
+						console.log(jqXHR.status);
+						console.log(textStatus);
+					}
+				});
+			}
+			
 			// 查詢所有資料
 			function queryAllEmployees() {
 				$.ajax({
