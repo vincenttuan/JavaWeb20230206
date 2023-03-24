@@ -17,7 +17,7 @@ src/main/resources/META-INF/persistence.xml
         &lt;properties&gt;
             &lt;property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(ForeignKeys=true)"/&gt;
             &lt;property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/&gt;
-            &lt;property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/web?useSSL=false&amp;serverTimezone=Asia/Taipei"/&gt;
+            &lt;property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/web?serverTimezone=Asia/Taipei"/&gt;
             &lt;property name="javax.persistence.jdbc.user" value="root"/&gt;
             &lt;property name="javax.persistence.jdbc.password" value="12345678"/&gt;
             &lt;property name="eclipselink.ddl-generation" value="create-or-extend-tables"/&gt;
