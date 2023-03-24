@@ -6,6 +6,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
@@ -35,35 +36,56 @@ public class EmployeeDao {
 		return employees;
 	}
 	
-	public int getEmployeeNextId() {
-		return employees.size() == 0 ? 1 : employees.get(employees.size()-1).getId() + 1;
-	}
-	
 	public Employee getEmployeeById(Integer id) {
-		Optional<Employee> employeeOpt = employees.stream()
-							.filter(emp -> emp.getId().equals(id))
-							.findFirst();
-		return employeeOpt.isPresent() ? employeeOpt.get() : null;
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+		Employee employee = entityManager.find(Employee.class, id);
+		entityManager.close();
+		return employee;
 	}
 	
 	public void addEmployee(Employee employee) {
-		employees.add(employee);
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+		// 建立交易
+		EntityTransaction etx = entityManager.getTransaction();
+		etx.begin(); // 開始
+		// 新增
+		entityManager.persist(employee);
+		//etx.rollback(); // 回滾(若有錯誤發生)
+		etx.commit(); // 提交
+		entityManager.close();
 	}
 	
 	public void updateEmployee(Integer id, Employee employee) {
-		// 根據 id 來查找 index
-		int index = employees.indexOf(getEmployeeById(id));
-		if(index != -1) {
-			employees.set(index, employee);
+		Employee existingEmployee = getEmployeeById(id);
+		if(existingEmployee != null) {
+			return;
 		}
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+		// 建立交易
+		EntityTransaction etx = entityManager.getTransaction();
+		etx.begin(); // 開始
+		// 修改
+		entityManager.merge(employee);
+		etx.commit(); // 提交
+		entityManager.close();
 	}
 	
 	public void deleteEmployee(Integer id) {
-		// 根據 id 來查找 index
-		int index = employees.indexOf(getEmployeeById(id));
-		if(index != -1) {
-			employees.remove(index);
+		
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+		// 建立交易
+		EntityTransaction etx = entityManager.getTransaction();
+		etx.begin(); // 開始
+		// 注意在進行刪除的時候要把查找也放到 etx 環境中避免斷開連接的實體
+		Employee existingEmployee = getEmployeeById(id);
+		if(existingEmployee != null) {
+			return;
 		}
+		// 移除
+		entityManager.remove(existingEmployee);
+		etx.commit(); // 提交
+		
+		entityManager.close();
 	}
 
 	@Override
