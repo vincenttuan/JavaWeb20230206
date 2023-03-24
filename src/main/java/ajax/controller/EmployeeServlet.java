@@ -49,7 +49,8 @@ public class EmployeeServlet extends HttpServlet {
 		Employee employee = gson.fromJson(reader, Employee.class);
 		// 新增
 		employeeDao.addEmployee(employee);
-		out.print("{'result': 'ADD OK'}");
+		resp.setStatus(HttpServletResponse.SC_OK);
+		out.print("{\"result\": \"ADD OK\"}");
 		out.flush();
 	}
 	

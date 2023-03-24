@@ -24,8 +24,6 @@
 					var employee = {id: empId, name: name, salary: salary};
 					// 調用新增方法
 					addEmployee(employee);
-					// 調用查詢所有資料方法
-					queryAllEmployees();
 				});
 			});	
 			
@@ -41,8 +39,11 @@
 					contentType: "application/json",
 					success: function(employees) {
 						console.log(employees);
+						// 調用查詢所有資料方法
+						queryAllEmployees();
 					},
 					error: function(jqXHR, textStatus) {
+						console.log("新增失敗");
 						console.log(jqXHR.status);
 						console.log(textStatus);
 					}
