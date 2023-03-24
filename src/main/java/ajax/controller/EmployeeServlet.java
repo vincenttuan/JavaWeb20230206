@@ -47,8 +47,6 @@ public class EmployeeServlet extends HttpServlet {
 		PrintWriter out = resp.getWriter();
 		BufferedReader reader = req.getReader(); // 取得前端傳來的串流資料(json)
 		Employee employee = gson.fromJson(reader, Employee.class);
-		// 設定 id
-		employee.setId(employeeDao.getEmployeeNextId());
 		// 新增
 		employeeDao.addEmployee(employee);
 		out.print("{'result': 'ADD OK'}");
