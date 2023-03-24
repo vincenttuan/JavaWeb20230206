@@ -57,7 +57,7 @@ public class EmployeeDao {
 	
 	public void updateEmployee(Integer id, Employee employee) {
 		Employee existingEmployee = getEmployeeById(id);
-		if(existingEmployee != null) {
+		if(existingEmployee == null) {
 			return;
 		}
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
@@ -78,11 +78,13 @@ public class EmployeeDao {
 		etx.begin(); // 開始
 		// 注意在進行刪除的時候要把查找也放到 etx 環境中避免斷開連接的實體
 		Employee existingEmployee = getEmployeeById(id);
-		if(existingEmployee != null) {
+		if(existingEmployee == null) {
 			return;
 		}
 		// 移除
-		entityManager.remove(existingEmployee);
+		// 將 existingEmployee 回到 entityManager 所管理的狀態: entityManager.merge(existingEmployee)
+		// 之後才能進行移除
+		entityManager.remove(entityManager.merge(existingEmployee));
 		etx.commit(); // 提交
 		
 		entityManager.close();

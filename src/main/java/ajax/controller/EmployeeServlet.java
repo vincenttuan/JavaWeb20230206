@@ -90,6 +90,7 @@ public class EmployeeServlet extends HttpServlet {
 				out.flush();
 			}
 		} catch (Exception e) {
+			e.printStackTrace();
 			resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 		}
 	}
