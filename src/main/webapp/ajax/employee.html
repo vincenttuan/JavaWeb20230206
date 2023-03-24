@@ -12,6 +12,21 @@
 			// 頁面載入完畢後所自動要執行的第一個程序
 			$(document).ready(function() {
 				queryAllEmployees();
+				
+				// 表單 submit 事件
+				$("#add-form").submit(function(event) {
+					event.preventDefault(); // 防止表單的預設行為
+					// 抓取表單資料
+					var empId = $('#id-input').val();
+					var name = $('#name-input').val();
+					var salary = $('#salary-input').val();
+					// 建立物件
+					var employee = {id: empId, name: name, salary: salary};
+					// 調用新增方法
+					addEmployee(employee);
+					// 調用查詢所有資料方法
+					queryAllEmployees();
+				});
 			});	
 			
 			// 新增
