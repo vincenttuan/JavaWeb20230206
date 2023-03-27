@@ -68,9 +68,19 @@
 			// 按下 salary-field
 			$(document).on('click', '.salary-field', function() {
 				var employees = employeeList;
-				employees.sort(function(emp1, emp2) {
-					return emp2.salary - emp1.salary;
-				});
+				// 增加一個屬性 data-sort-order 來決定排序方向
+				var sortOrder = this.getAttribute('data-sort-order') || 'desc';
+				if(sortOrder == 'desc') {
+					employees.sort(function(emp1, emp2) {
+						return emp2.salary - emp1.salary;
+					});
+					this.setAttribute('data-sort-order', 'asc');
+				} else {
+					employees.sort(function(emp1, emp2) {
+						return emp1.salary - emp2.salary;
+					});
+					this.setAttribute('data-sort-order', 'desc');
+				}
 				console.log(JSON.stringify(employees));
 				$("#employee-list").empty();
 				$.each(employees, function(index, emp){
