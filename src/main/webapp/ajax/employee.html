@@ -31,7 +31,11 @@
 			$(document).on('click', '.edit-btn', function() {
 				
 				var empId = $(this).closest('tr').find('td:first').text();
+				var name = $(this).closest('tr').find('td:nth-of-type(2)').text();
+				var salary = $(this).closest('tr').find('td:nth-of-type(3)').text();
 				console.log(empId);
+				console.log(name);
+				console.log(salary);
 				
 			});
 			
