@@ -24,7 +24,8 @@ public class Server {
 		// 接收 client 端來的資料
 		String inputLine;
 		while ((inputLine = in.readLine()) != null) {
-			out.print(inputLine);
+			// 將 client 端傳來的資料印出
+			System.out.println("Server 接到 Client 傳來的資料: " + inputLine);
 		}
 		
 		// 關閉 I/O
@@ -34,6 +35,7 @@ public class Server {
 		// 關閉連線
 		clientSocket.close();
 		serverSocket.close();
+		System.out.println("Server 關閉");
 	}
 	
 }

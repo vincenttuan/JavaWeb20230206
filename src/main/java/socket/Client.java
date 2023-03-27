@@ -24,7 +24,9 @@ public class Client {
 		while (true) {
 			int number = random.nextInt(10000); 
 			// 傳送給 server 端
-			out.print(number + "");
+			out.println(number + "");
+			out.flush();
+			//System.out.println(number + "");
 			if(number == 9999) {
 				break;
 			}
@@ -32,6 +34,7 @@ public class Client {
 		}
 		
 		socket.close();
+		System.out.println("Client 關閉");
 	}
 	
 }
