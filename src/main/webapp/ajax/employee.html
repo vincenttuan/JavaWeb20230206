@@ -8,6 +8,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script type="text/javascript">
 			var apiEndpoint = '/JavaWeb/ajax/employees/';
+			var employeeList = null;
 			
 			// 頁面載入完畢後所自動要執行的第一個程序
 			$(document).ready(function() {
@@ -62,6 +63,29 @@
 				$("#salary-input").val(salary);
 				// 變更 submit-btn 的名字
 				$("#submit-btn").text($(this).hasClass('edit-btn')?'修改':'刪除');
+			});
+			
+			// 按下 salary-field
+			$(document).on('click', '.salary-field', function() {
+				var employees = employeeList;
+				employees.sort(function(emp1, emp2) {
+					return emp2.salary - emp1.salary;
+				});
+				console.log(JSON.stringify(employees));
+				$("#employee-list").empty();
+				$.each(employees, function(index, emp){
+					var html = '';
+					// 組 tbody-tr-td
+					html += '<tr>';
+					html += '<td>' + emp.id + '</td>';
+					html += '<td>' + emp.name + '</td>';
+					html += '<td>' + emp.salary + '</td>';
+					html += '<td class="edit-btn">修改</td>';
+					html += '<td class="del-btn">刪除</td>';
+					html += '</tr>';
+					
+					$("#employee-list").append(html);
+				});
 			});
 			
 			
@@ -135,6 +159,7 @@
 					type: "GET",
 					dataType: "json",
 					success: function(employees) {
+						employeeList = employees;
 						console.log(employees);
 						$("#employee-list").empty();
 						$.each(employees, function(index, emp){
@@ -179,7 +204,7 @@
 				<table class="pure-table pure-table-bordered">
 					<thead>
 						<tr>
-							<th>ID</th><th>姓名</th><th>薪資</th><th>修改</th><th>刪除</th>
+							<th>ID</th><th>姓名</th><th class="salary-field">薪資</th><th>修改</th><th>刪除</th>
 						</tr>
 					</thead>
 					<tbody id="employee-list">
