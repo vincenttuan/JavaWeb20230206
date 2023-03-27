@@ -113,7 +113,7 @@
 			function deleteEmployee(employee) {
 				$.ajax({
 					url: apiEndpoint + employee.id,
-					type: "PUT",
+					type: "DELETE",
 					dataType: "json",
 					success: function(employees) {
 						console.log(employees);
