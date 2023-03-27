@@ -36,10 +36,17 @@
 							break;	
 					}
 					
-					
-					
-					
+					// 查詢全部
+					queryAllEmployees();
+					// 將表單重置 reset
+					$('#add-form')[0].reset();
 				});
+				
+				// 若表單 reset 要將 submit-btn 變為 '新增'
+				$('#add-form')[0].addEventListener('reset', function() {
+					$('#submit-btn').text('新增');
+				});
+				
 			});	
 			
 			// 按下 edit-btn
