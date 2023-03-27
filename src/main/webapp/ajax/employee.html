@@ -28,7 +28,7 @@
 			});	
 			
 			// 按下 edit-btn
-			$(document).on('click', '.edit-btn', function() {
+			$(document).on('click', '.edit-btn, .del-btn', function() {
 				
 				var empId = $(this).closest('tr').find('td:first').text();
 				var name = $(this).closest('tr').find('td:nth-of-type(2)').text();
@@ -40,7 +40,8 @@
 				$("#id-input").val(empId);
 				$("#name-input").val(name);
 				$("#salary-input").val(salary);
-				
+				// 變更 submit-btn 的名字
+				$("#submit-btn").text($(this).hasClass('edit-btn')?'修改':'刪除');
 			});
 			
 			
