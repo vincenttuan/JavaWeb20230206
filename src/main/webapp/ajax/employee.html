@@ -27,6 +27,15 @@
 				});
 			});	
 			
+			// 按下 edit-btn
+			$(document).on('click', '.edit-btn', function() {
+				
+				var empId = $(this).closest('tr').find('td:first').text();
+				console.log(empId);
+				
+			});
+			
+			
 			// 新增
 			function addEmployee(employee) {
 				// 新增時給一個預設 id
@@ -66,8 +75,8 @@
 							html += '<td>' + emp.id + '</td>';
 							html += '<td>' + emp.name + '</td>';
 							html += '<td>' + emp.salary + '</td>';
-							html += '<td>修改</td>';
-							html += '<td>刪除</td>';
+							html += '<td class="edit-btn">修改</td>';
+							html += '<td class="del-btn">刪除</td>';
 							html += '</tr>';
 							
 							$("#employee-list").append(html);
@@ -87,7 +96,7 @@
 		<form class="pure-form" id="add-form">
 			<fieldset>
 				<legend>Employee Form</legend>
-				<input type="hidden" id="id-input" /> <!-- 隱藏 id -->
+				<input type="text" id="id-input" /> <!-- 隱藏 id -->
 				姓名: <input type="text" id="name-input" placeholder="請輸入員工姓名" required><p>
 				薪資: <input type="number" id="salary-input" placeholder="請輸入員工薪資" required><p>
 				<button class="pure-button" type="reset">清空</button>&nbsp;
