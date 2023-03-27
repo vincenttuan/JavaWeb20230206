@@ -22,8 +22,23 @@
 					var salary = $('#salary-input').val();
 					// 建立物件
 					var employee = {id: empId, name: name, salary: salary};
-					// 調用新增方法
-					addEmployee(employee);
+					
+					// 判定 submit-btn 的 text
+					switch ($('#submit-btn').text()) {
+						case '新增':
+							addEmployee(employee); // 調用新增方法		
+							break;
+						case '修改':
+							alert('修改程序...'); // 調用修改方法
+							break;
+						case '刪除':
+							alert('刪除程序...'); // 調用刪除方法
+							break;	
+					}
+					
+					
+					
+					
 				});
 			});	
 			
@@ -105,7 +120,7 @@
 		<form class="pure-form" id="add-form">
 			<fieldset>
 				<legend>Employee Form</legend>
-				<input type="text" id="id-input" /> <!-- 隱藏 id -->
+				<input type="hidden" id="id-input" /> <!-- 隱藏 id -->
 				姓名: <input type="text" id="name-input" placeholder="請輸入員工姓名" required><p>
 				薪資: <input type="number" id="salary-input" placeholder="請輸入員工薪資" required><p>
 				<button class="pure-button" type="reset">清空</button>&nbsp;
