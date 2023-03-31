@@ -61,10 +61,22 @@
 					var url = 'ws://192.168.1.10:8080/JavaWeb/websocketTest';
 					infoURL.innerText = url;
 					// 開啟 WebSocket 連線
-					webSocket = new WebSocker(url);
+					webSocket = new WebSocket(url);
 					// onopen 連線成功時觸發 
 					webSocket.onopen = function() {
 						infoWindow.innerHTML = "連線成功";
+						// 當連線成功的時候就發送一個訊息
+						var msg = {
+							userName: userNameInput.value,
+							message: "大家好 !"
+						};
+						webSocket.send(JSON.stringify(msg));
+					};
+					
+					// onmessage, 接收來自 socket server 的信息 
+					websocket.onmessage = function(event) {
+						var msg = JSON.parse(event.data);
+						messageDisplay.innerHTML += msg.userName + "說: " + msg.message + "<br>";
 					};
 
                 }
