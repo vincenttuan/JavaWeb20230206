@@ -101,9 +101,9 @@
 					// onclose 連線被關閉
 					webSocket.onclose = function(event) {
 						if(event.wasClean) {
-							infoWindow.HTML = "連線已經關閉";
+							infoWindow.innerHTML = "連線已經關閉";
 						} else {
-							infoWindow.HTML = "連線意外中斷";
+							infoWindow.innerHTML = "連線意外中斷";
 						}
 						loginBtn.disabled = false;
 						userNameInput.disabled = false;
