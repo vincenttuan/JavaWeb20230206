@@ -62,6 +62,7 @@
 					infoURL.innerText = url;
 					// 開啟 WebSocket 連線
 					webSocket = new WebSocket(url);
+					
 					// onopen 連線成功時觸發 
 					webSocket.onopen = function() {
 						infoWindow.innerHTML = "連線成功";
@@ -80,6 +81,13 @@
 					webSocket.onmessage = function(event) {
 						var msg = JSON.parse(event.data);
 						messageDisplay.innerHTML += msg.userName + "說: " + msg.message + "<br>";
+					};
+					
+					// onerror 連線失敗時執行
+					webSocket.onerror = function(event) {
+						loginBtn.disabled = false;
+						userNameInput.disabled = false;
+						infoWindow.innerHTML = "連線失敗";
 					};
 
                 }
