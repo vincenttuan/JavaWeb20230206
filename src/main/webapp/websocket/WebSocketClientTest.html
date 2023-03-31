@@ -74,7 +74,7 @@
 					};
 					
 					// onmessage, 接收來自 socket server 的信息 
-					websocket.onmessage = function(event) {
+					webSocket.onmessage = function(event) {
 						var msg = JSON.parse(event.data);
 						messageDisplay.innerHTML += msg.userName + "說: " + msg.message + "<br>";
 					};
