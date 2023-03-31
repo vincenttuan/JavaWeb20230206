@@ -65,6 +65,9 @@
 					// onopen 連線成功時觸發 
 					webSocket.onopen = function() {
 						infoWindow.innerHTML = "連線成功";
+						isConnectSuccess = true;
+						loginBtn.disabled = true;
+						userNameInput.disabled = true;
 						// 當連線成功的時候就發送一個訊息
 						var msg = {
 							userName: userNameInput.value,
