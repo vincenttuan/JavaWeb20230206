@@ -66,7 +66,7 @@
                 //設置WebSocket
                 function setWebSocket() {
 					console.log('Ready to run WebSocket');
-					var url = 'ws://localhost:8080/JavaWeb/websocketTest';
+					var url = 'ws://192.168.1.31:8080/JavaWeb/websocketTest';
 					infoURL.innerText = url;
 					// 開啟 WebSocket 連線
 					webSocket = new WebSocket(url);
@@ -119,7 +119,7 @@
         <div>
             <form class="pure-form" id="chatRoomForm" onsubmit="return false;">
                 <fieldset>
-                    <legend>聊天室</legend>
+                    <legend>聊天室 (線上人數: <span id="count">0</span>)</legend>
                     <input type="text" id="userNameInput" placeholder="請輸入名稱" /> 
                     <input type="button" id="loginBtn" value="登入" class="pure-button pure-button-primary" /> 
                     <input type="button" id="closeBtn" value="關閉" class="pure-button pure-button-primary" />
