@@ -14,6 +14,7 @@
             window.onload = function () {
                 //獲取DOM元件
                 var loginBtn       = document.getElementById("loginBtn");
+                var closeBtn       = document.getElementById("closeBtn");
                 var userNameInput  = document.getElementById("userNameInput");
                 var infoWindow     = document.getElementById("infoWindow");
                 var infoURL        = document.getElementById("infoURL");
@@ -33,6 +34,13 @@
                         infoWindow.innerHTML = "請輸入名稱";
                     }
 
+                });
+                
+                // 手動關閉 WebSocket
+                closeBtn.addEventListener("click", function () {
+                    if(webSocket != null) {
+                    	webSocket.close();
+                    }
                 });
 				
                 //Submit Form時送出訊息
@@ -89,6 +97,17 @@
 						userNameInput.disabled = false;
 						infoWindow.innerHTML = "連線失敗";
 					};
+					
+					// onclose 連線被關閉
+					webSocket.onclose = function(event) {
+						if(event.wasClean) {
+							infoWindow.HTML = "連線已經關閉";
+						} else {
+							infoWindow.HTML = "連線意外中斷";
+						}
+						loginBtn.disabled = false;
+						userNameInput.disabled = false;
+					}
 
                 }
                 
@@ -103,6 +122,7 @@
                     <legend>聊天室</legend>
                     <input type="text" id="userNameInput" placeholder="請輸入名稱" /> 
                     <input type="button" id="loginBtn" value="登入" class="pure-button pure-button-primary" /> 
+                    <input type="button" id="closeBtn" value="關閉" class="pure-button pure-button-primary" />
                     <br>
                     <span id="infoWindow"></span>
                     <span id="infoURL"></span>
